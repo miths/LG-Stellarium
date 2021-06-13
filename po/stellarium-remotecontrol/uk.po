@@ -1,0 +1,667 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Stellarium's team
+# This file is distributed under the same license as the stellarium-remotecontrol package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# cardinot <mcardinot@gmail.com>, 2017
+# Yuri Chornoivan <yurchor@ukr.net>, 2020
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: stellarium-remotecontrol\n"
+"Report-Msgid-Bugs-To: stellarium@googlegroups.com\n"
+"POT-Creation-Date: 2020-11-21 16:45+0700\n"
+"PO-Revision-Date: 2017-11-29 01:19+0000\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>, 2020\n"
+"Language-Team: Ukrainian (https://www.transifex.com/stellarium/teams/80998/uk/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: uk\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+
+#: plugins/RemoteControl/webroot/js/api/actions.js:60
+msgid "Could not retrieve action list"
+msgstr "Не вдалося отримати список дій"
+
+#: plugins/RemoteControl/webroot/js/api/actions.js:88
+msgid "Action '%1' not accepted by server: "
+msgstr "Дію «%1» не прийнято сервером: "
+
+#: plugins/RemoteControl/webroot/js/api/actions.js:95
+msgid "Error sending action '%1' to server: "
+msgstr "Помилка під час спроби надіслати дію «%1» на сервер: "
+
+#: plugins/RemoteControl/webroot/js/api/location.js:33
+#: plugins/RemoteControl/webroot/js/api/location.js:61
+#: plugins/RemoteControl/webroot/js/api/search.js:188
+msgid "Error performing search"
+msgstr "Помилка під час спроби виконати пошук"
+
+#: plugins/RemoteControl/webroot/js/api/location.js:125
+msgid "Could not retrieve country list"
+msgstr "Не вдалося отримати список країн"
+
+#: plugins/RemoteControl/webroot/js/api/location.js:138
+msgid "Could not retrieve planet list"
+msgstr "Не вдалося отримати список планет"
+
+#: plugins/RemoteControl/webroot/js/api/properties.js:28
+msgid "Could not retrieve property list"
+msgstr "Не вдалося отримати список властивостей"
+
+#: plugins/RemoteControl/webroot/js/api/properties.js:89
+#: plugins/RemoteControl/webroot/js/api/properties.js:110
+msgid "Property '%1' not accepted by server: "
+msgstr "Властивість «%1» не прийнято сервером: "
+
+#: plugins/RemoteControl/webroot/js/api/properties.js:96
+msgid "Error sending property '%1' to server: "
+msgstr "Помилка під час надсилання властивості «%1» на сервер: "
+
+#: plugins/RemoteControl/webroot/js/api/remotecontrol.js:197
+msgid "Error sending command to server: "
+msgstr "Помилка під час спроби надсилання команди на сервер: "
+
+#: plugins/RemoteControl/webroot/js/api/scripts.js:27
+msgid "Could not retrieve script list"
+msgstr "Не вдалося отримати список сценаріїв"
+
+#: plugins/RemoteControl/webroot/js/api/search.js:35
+msgid "querying"
+msgstr "опитуємо"
+
+#: plugins/RemoteControl/webroot/js/api/search.js:44
+msgid "Error (%1)"
+msgstr "Помилка (%1)"
+
+#: plugins/RemoteControl/webroot/js/api/search.js:60
+msgid "Error performing Simbad lookup"
+msgstr "Помилка під час спроби виконати пошук Simbad"
+
+#: plugins/RemoteControl/webroot/js/api/search.js:79 index.html:219
+#: tablet7in.html:235
+msgid "idle"
+msgstr "бездіяльність"
+
+#: plugins/RemoteControl/webroot/js/api/search.js:105
+msgid "Error loading object types"
+msgstr "Помилка під час спроби завантажити типи об’єктів"
+
+#: plugins/RemoteControl/webroot/js/api/search.js:138
+msgid "Error getting object list"
+msgstr "Помилка під час отримання списку об’єктів"
+
+#: plugins/RemoteControl/webroot/js/api/search.js:200
+msgid "waiting"
+msgstr "очікування"
+
+#: plugins/RemoteControl/webroot/js/api/viewoptions.js:38
+msgid "Could not retrieve projection list"
+msgstr "Не вдалося отримати список проєкцій"
+
+#: plugins/RemoteControl/webroot/js/api/viewoptions.js:51
+#: plugins/RemoteControl/webroot/js/api/viewoptions.js:64
+msgid "Could not retrieve landscape list"
+msgstr "Не вдалося отримати список ландшафтів"
+
+#: plugins/RemoteControl/webroot/js/plugins/scenery3d.js:22
+#: plugins/RemoteControl/webroot/js/ui/scripts.js:76 index.html:628
+#: index.html:685 tablet7in.html:733 tablet7in.html:793
+msgid "-none-"
+msgstr "-немає-"
+
+#: plugins/RemoteControl/webroot/js/plugins/scenery3d.js:28
+msgid "(Currently loading: %1)"
+msgstr "(Зараз завантажуємо: %1)"
+
+#: plugins/RemoteControl/webroot/js/plugins/scenery3d.js:71
+msgid "Could not retrieve Scenery3d list"
+msgstr "Не вдалося отримати список Scenery3d"
+
+#: plugins/RemoteControl/webroot/js/ui/actions.js:44
+#: plugins/RemoteControl/webroot/js/ui/actions.js:77
+msgid "on"
+msgstr "увімкн."
+
+#: plugins/RemoteControl/webroot/js/ui/actions.js:44
+#: plugins/RemoteControl/webroot/js/ui/actions.js:77
+msgid "off"
+msgstr "вимкн."
+
+#: plugins/RemoteControl/webroot/js/ui/combobox.js:58
+msgid "Show All Items"
+msgstr "Показати всі елементи"
+
+#: plugins/RemoteControl/webroot/js/ui/combobox.js:124
+msgid "Input did not match any item"
+msgstr "Введене не відповідає жодному з елементів"
+
+#: plugins/RemoteControl/webroot/js/ui/search.js:285
+msgid "No current selection"
+msgstr "Зараз нічого не позначено"
+
+#: index.html:5 tablet7in.html:5
+msgid "Stellarium remote control plugin"
+msgstr "Додаток віддаленого керування Stellarium"
+
+#: index.html:17 tablet7in.html:18
+msgid "Please wait, loading"
+msgstr "Будь ласка, зачекайте, завантажуємо"
+
+#: index.html:26 tablet7in.html:27
+msgid "Stellarium remote control"
+msgstr "Віддалене керування Stellarium"
+
+#: index.html:30 tablet7in.html:31
+msgid "Main controls"
+msgstr "Основні засоби керування"
+
+#: index.html:33 tablet7in.html:38
+msgid "DSO"
+msgstr "Віддалений об’єкт"
+
+#: index.html:36
+msgid "Actions and scripts"
+msgstr "Дії і сценарії"
+
+#: index.html:39 tablet7in.html:45
+msgid "Scenery3d"
+msgstr "Scenery3d"
+
+#: index.html:77
+msgid "Pause"
+msgstr "Пауза"
+
+#: index.html:82 tablet7in.html:183
+msgid "Time jumps"
+msgstr "Переходи за часом"
+
+#: index.html:86 tablet7in.html:187
+msgid "Solar hour"
+msgstr "Сонячна година"
+
+#: index.html:87 tablet7in.html:188
+msgid "Solar day"
+msgstr "Сонячний день"
+
+#: index.html:88 tablet7in.html:189
+msgid "Solar week"
+msgstr "Сонячний тиждень"
+
+#: index.html:91 tablet7in.html:192
+msgid "Sidereal year"
+msgstr "Сидеричний рік"
+
+#: index.html:92 tablet7in.html:193
+msgid "Sidereal century"
+msgstr "Сидеричне століття"
+
+#: index.html:94 tablet7in.html:195
+msgid "Synodic month"
+msgstr "Синодичний місяць"
+
+#: index.html:95 tablet7in.html:196
+msgid "Draconic month"
+msgstr "Драконічний місяць"
+
+#: index.html:96 tablet7in.html:197
+msgid "Draconic year"
+msgstr "Драконічний рік"
+
+#: index.html:98 tablet7in.html:210
+msgid "Gaussian year"
+msgstr "Гаусів рік"
+
+#: index.html:101 tablet7in.html:200
+msgid "Anomalistic month"
+msgstr "Аномалістичний місяць"
+
+#: index.html:102 tablet7in.html:201
+msgid "Anomalistic year"
+msgstr "Аномалістичний рік"
+
+#: index.html:103 tablet7in.html:202
+msgid "Anomalistic century"
+msgstr "Аномалістичне століття"
+
+#: index.html:105 tablet7in.html:204
+msgid "Mean tropical month"
+msgstr "Середній тропічний місяць"
+
+#: index.html:106 tablet7in.html:205
+msgid "Mean tropical year"
+msgstr "Середній тропічний рік"
+
+#: index.html:107 tablet7in.html:206
+msgid "Mean tropical century"
+msgstr "Середнє тропічне століття"
+
+#: index.html:109 tablet7in.html:208
+msgid "Tropical year"
+msgstr "Тропічний рік"
+
+#: index.html:110 tablet7in.html:209
+msgid "Julian year"
+msgstr "Юліанський рік"
+
+#: index.html:111 tablet7in.html:211
+msgid "Julian century"
+msgstr "Юліанське століття"
+
+#: index.html:123 tablet7in.html:101
+msgid "View towards horizon at Azimuth"
+msgstr "Погляд на горизонт за азимутом"
+
+#: index.html:144 tablet7in.html:123
+msgid "Vertical View offset"
+msgstr "Зсув вертикального перегляду"
+
+#: index.html:154 tablet7in.html:133
+msgid "Reset"
+msgstr "Скинути"
+
+#: index.html:160 tablet7in.html:138
+msgid "FOV"
+msgstr "ПЗ"
+
+#: index.html:213 tablet7in.html:229
+msgid "Enter search term. Use TAB to navigate results."
+msgstr "Вкажіть ключ пошуку. Для навігації результатами використовуйте Tab."
+
+#: index.html:214 tablet7in.html:230
+msgid "Select and focus"
+msgstr "Позначити і фокусувати"
+
+#: index.html:240 tablet7in.html:259
+msgid "Selection mode"
+msgstr "Режим вибору"
+
+#: index.html:240 tablet7in.html:259
+msgid "Center on object"
+msgstr "Центрувати на об’єкті"
+
+#: index.html:240 tablet7in.html:259
+msgid "Center and zoom to object"
+msgstr "Центрувати і збільшити об’єкт"
+
+#: index.html:240 tablet7in.html:259
+msgid "Just mark the object"
+msgstr "Лише позначити об’єкт"
+
+#: index.html:242 tablet7in.html:261
+msgid "Quick select"
+msgstr "Швидке позначення"
+
+#: index.html:246 tablet7in.html:265
+msgid "Earth"
+msgstr "Земля"
+
+#: index.html:246 tablet7in.html:265
+msgid "Pluto"
+msgstr "Плутон"
+
+#: index.html:252 tablet7in.html:294
+msgid "Current selection"
+msgstr "Поточне позначене"
+
+#: index.html:268 tablet7in.html:321
+msgid "Milky Way brightness:"
+msgstr "Яскравість Чумацького Шляху:"
+
+#: index.html:272 tablet7in.html:333
+msgid "Digitized Sky Survey"
+msgstr "Цифровий огляд неба (DSS)"
+
+#: index.html:273 tablet7in.html:334
+msgid "HiPS Survey"
+msgstr "Огляд HiPS"
+
+#: index.html:287 tablet7in.html:351
+msgid "Show planet orbits"
+msgstr "Показати орбіти планет"
+
+#: index.html:288 tablet7in.html:352
+msgid "Show planet orbits only"
+msgstr "Показувати лише орбіти планет"
+
+#: index.html:289 tablet7in.html:353
+msgid "Show orbit for selected planet"
+msgstr "Показати орбіту позначеної планети"
+
+#: index.html:290 tablet7in.html:354
+msgid "Show planet trails"
+msgstr "Показувати траєкторії планет"
+
+#: index.html:291 tablet7in.html:355
+msgid "Show trail only for selected planet"
+msgstr "Показати траєкторію лише для позначеної планети"
+
+#: index.html:322 tablet7in.html:409
+msgid "Shooting Stars"
+msgstr "Метеори"
+
+#: index.html:323 tablet7in.html:410
+msgid "ZHR:"
+msgstr "ЗГЧ:"
+
+#: index.html:368 tablet7in.html:463
+msgid ""
+"Instantaneous circles of earth´s axis on its motion around ecliptical poles."
+" Displayed on Earth only."
+msgstr ""
+"Кола на вісі Землі під час її руху навколо полюсів екліптики. Буде показано "
+"лише на Землі."
+
+#: index.html:377 tablet7in.html:472
+msgid "Solstices"
+msgstr "Солнцестояння"
+
+#: index.html:378 tablet7in.html:473
+msgid "Crossquarters"
+msgstr "Квартальні дні"
+
+#: index.html:379 tablet7in.html:474
+msgid "Major Standstill"
+msgstr "Основна зупинка"
+
+#: index.html:380 tablet7in.html:475
+msgid "Minor Standstill"
+msgstr "Мінорна зупинка"
+
+#: index.html:389 tablet7in.html:484
+msgid "Current Planet:"
+msgstr "Поточна планета:"
+
+#: index.html:429 tablet7in.html:524
+msgid "Catalogue of Reflection Nebulae (Van den Bergh, 1966)"
+msgstr "Каталог відбивних туманностей (Ван ден Берг, 1966)"
+
+#: index.html:447 tablet7in.html:542
+msgid ""
+"Catalogue of southern stars embedded in nebulosity (van den Bergh+, 1975)"
+msgstr ""
+"Каталог зірок південного неба, які вбудовано у туманності (Van den Bergh та "
+"інші, 1975)"
+
+#: index.html:502
+msgid "Objects without identifier"
+msgstr "Об'єкти без ідентифікатора"
+
+#: index.html:527 tablet7in.html:616
+msgid "Bright Nebulae"
+msgstr "Яскраві туманності"
+
+#: index.html:528 tablet7in.html:617
+msgid "Dark Nebulae"
+msgstr "Темні туманності"
+
+#: index.html:529 tablet7in.html:618
+msgid "Planetary Nebulae"
+msgstr "Планетарні туманності"
+
+#: index.html:538 tablet7in.html:627
+msgid "Labels and markers"
+msgstr "Мітки і позначки"
+
+#: index.html:563 tablet7in.html:652
+msgid "Use associated planet and position"
+msgstr "Використовувати пов'язані планети та позиції"
+
+#: index.html:572 tablet7in.html:661
+msgid "Show illumination"
+msgstr "Показати освітлення"
+
+#: index.html:577 tablet7in.html:667
+msgid "Current landscape"
+msgstr "Поточний ландшафт"
+
+#: index.html:589 tablet7in.html:680
+msgid "Show lines with thickness"
+msgstr "Показувати лінії із товщиною"
+
+#: index.html:594 tablet7in.html:685
+msgid "Show asterisms with thickness"
+msgstr "Показувати астеризми із товщиною"
+
+#: index.html:598 tablet7in.html:689
+msgid "Show ray helpers with thickness"
+msgstr "Показувати лінії променів із товщиною"
+
+#: index.html:606 tablet7in.html:699
+msgid "Show boundaries with thickness"
+msgstr "Показувати межі із товщиною"
+
+#: index.html:611 tablet7in.html:704
+msgid "Constellation selection isolated"
+msgstr "Окремий вибір сузір’їв"
+
+#: index.html:615 tablet7in.html:708
+msgid "Current sky culture"
+msgstr "Поточна картина неба"
+
+#: index.html:628 tablet7in.html:733
+msgid "Active script:"
+msgstr "Поточний сценарій:"
+
+#: index.html:629 tablet7in.html:734
+msgid "Run selected script"
+msgstr "Виконати позначений сценарій"
+
+#: index.html:629 tablet7in.html:734
+msgid "Stop current script"
+msgstr "Припинити виконання поточного сценарію"
+
+#: index.html:634 tablet7in.html:41 tablet7in.html:718
+msgid "Actions"
+msgstr "Дії"
+
+#: index.html:638 tablet7in.html:722
+msgid "Run/toggle action"
+msgstr "Виконати/Перемкнути дію"
+
+#: index.html:649 tablet7in.html:757
+msgid "Planet map"
+msgstr "Карта планети"
+
+#: index.html:650 tablet7in.html:758
+msgid "Planet map pointer"
+msgstr "Вказівник на карті планети"
+
+#: index.html:654 tablet7in.html:762
+msgid "Type to search location"
+msgstr "Введіть щось, щоб знайти місце"
+
+#: index.html:683 tablet7in.html:791
+msgid "Interaction"
+msgstr "Взаємодія"
+
+#: index.html:684 tablet7in.html:792
+msgid "Current scene:"
+msgstr "Поточна сцена:"
+
+#: index.html:687 tablet7in.html:795
+msgid "View controls"
+msgstr "Керування переглядом"
+
+#: index.html:693 tablet7in.html:801
+msgid "Movement controls"
+msgstr "Керування рухом"
+
+#: index.html:705 tablet7in.html:813
+msgid "Torchlight"
+msgstr "Місцеве освітлення"
+
+#: index.html:712 tablet7in.html:820
+msgid "Scene selection"
+msgstr "Вибір сцени"
+
+#: index.html:716 tablet7in.html:824
+msgid "Load selected scene"
+msgstr "Завантажити позначену сцену"
+
+#: index.html:740 tablet7in.html:849
+msgid "No response from server"
+msgstr "Немає відповіді від сервера"
+
+#: index.html:741 tablet7in.html:850
+msgid "No response from server for %1 seconds. Is Stellarium still running?"
+msgstr "Сервер не відповідає уже протягом %1 секунд. Stellarium ще працює?"
+
+#: tablet7in.html:32
+msgid "Time Jump"
+msgstr "Часовий перехід"
+
+#: tablet7in.html:37
+msgid "Grids"
+msgstr "Сітки"
+
+#: tablet7in.html:97
+msgid "Up/Left"
+msgstr "Вгору/Ліворуч"
+
+#: tablet7in.html:97
+msgid "Up"
+msgstr "Вгору"
+
+#: tablet7in.html:97
+msgid "Up/Right"
+msgstr "Вгору/Праворуч"
+
+#: tablet7in.html:97
+msgid "Left"
+msgstr "Ліворуч"
+
+#: tablet7in.html:97
+msgid "Focus on selected object"
+msgstr "Фокусувати на позначеному об’єкті"
+
+#: tablet7in.html:97
+msgid "Focus on selection"
+msgstr "Фокусувати на позначеному"
+
+#: tablet7in.html:97
+msgid "Right"
+msgstr "Праворуч"
+
+#: tablet7in.html:97
+msgid "Down/Left"
+msgstr "Вниз/Ліворуч"
+
+#: tablet7in.html:97
+msgid "Down"
+msgstr "Вниз"
+
+#: tablet7in.html:97
+msgid "Down/Right"
+msgstr "Вниз/Праворуч"
+
+#: tablet7in.html:266
+msgid "Sirius"
+msgstr "Сиріус"
+
+#: tablet7in.html:267
+msgid "Arcturus"
+msgstr "Арктур"
+
+#: tablet7in.html:268
+msgid "Capella"
+msgstr "Капелла"
+
+#: tablet7in.html:269
+msgid "Vega"
+msgstr "Вега"
+
+#: tablet7in.html:270
+msgid "Deneb"
+msgstr "Денеб"
+
+#: tablet7in.html:271
+msgid "Altair"
+msgstr "Альтаїр"
+
+#: tablet7in.html:272
+msgid "Andromeda Galaxy"
+msgstr "Туманність Андромеди"
+
+#: tablet7in.html:273
+msgid "Hercules Cluster"
+msgstr "Скупчення у Геркулесі"
+
+#: tablet7in.html:274
+msgid "Orion Nebula"
+msgstr "Туманність Оріона"
+
+#: tablet7in.html:275
+msgid "Eta Carinae Nebula"
+msgstr "Туманність Киля"
+
+#: tablet7in.html:276
+msgid "47 Tucanae Cluster"
+msgstr "Скупчення 47 Тукана"
+
+#: tablet7in.html:277
+msgid "Aries"
+msgstr "Овен"
+
+#: tablet7in.html:278
+msgid "Taurus"
+msgstr "Телець"
+
+#: tablet7in.html:279
+msgid "Gemini"
+msgstr "Близнюки"
+
+#: tablet7in.html:280
+msgid "Cancer"
+msgstr "Рак"
+
+#: tablet7in.html:281
+msgid "Leo"
+msgstr "Лев"
+
+#: tablet7in.html:282
+msgid "Virgo"
+msgstr "Діва"
+
+#: tablet7in.html:283
+msgid "Libra"
+msgstr "Терези"
+
+#: tablet7in.html:284
+msgid "Scorpius"
+msgstr "Скорпіон"
+
+#: tablet7in.html:285
+msgid "Sagittarius"
+msgstr "Стрілець"
+
+#: tablet7in.html:286
+msgid "Capricornus"
+msgstr "Козоріг"
+
+#: tablet7in.html:287
+msgid "Aquarius"
+msgstr "Водолій"
+
+#: tablet7in.html:288
+msgid "Pisces"
+msgstr "Риби"
+
+#: tablet7in.html:742
+msgid "Favorites"
+msgstr "Вибране"
+
+#: tablet7in.html:744
+msgid "Show 1"
+msgstr "Перший показ"
+
+#: tablet7in.html:745
+msgid "Remove Labels and Images"
+msgstr "Вилучити мітки і зображення"
+
+#: tablet7in.html:745
+msgid "Cleanup Screen"
+msgstr "Очистити екран"

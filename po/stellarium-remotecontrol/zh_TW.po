@@ -1,0 +1,664 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Stellarium's team
+# This file is distributed under the same license as the stellarium-remotecontrol package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# cardinot <mcardinot@gmail.com>, 2017
+# 殳玮 孙 <itun@qq.com>, 2018
+# freemanli <freeman.tam@gmail.com>, 2020
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: stellarium-remotecontrol\n"
+"Report-Msgid-Bugs-To: stellarium@googlegroups.com\n"
+"POT-Creation-Date: 2020-11-21 16:45+0700\n"
+"PO-Revision-Date: 2017-11-29 01:19+0000\n"
+"Last-Translator: freemanli <freeman.tam@gmail.com>, 2020\n"
+"Language-Team: Chinese (Taiwan) (https://www.transifex.com/stellarium/teams/80998/zh_TW/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_TW\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: plugins/RemoteControl/webroot/js/api/actions.js:60
+msgid "Could not retrieve action list"
+msgstr "無法取回操控清單"
+
+#: plugins/RemoteControl/webroot/js/api/actions.js:88
+msgid "Action '%1' not accepted by server: "
+msgstr "伺服器不接受 '%1' 的操控: "
+
+#: plugins/RemoteControl/webroot/js/api/actions.js:95
+msgid "Error sending action '%1' to server: "
+msgstr "傳送 '%1' 的操控到伺服器發生錯誤: "
+
+#: plugins/RemoteControl/webroot/js/api/location.js:33
+#: plugins/RemoteControl/webroot/js/api/location.js:61
+#: plugins/RemoteControl/webroot/js/api/search.js:188
+msgid "Error performing search"
+msgstr "執行搜尋時出錯"
+
+#: plugins/RemoteControl/webroot/js/api/location.js:125
+msgid "Could not retrieve country list"
+msgstr "無法取回國家/地區清單"
+
+#: plugins/RemoteControl/webroot/js/api/location.js:138
+msgid "Could not retrieve planet list"
+msgstr "無法取回行星清單"
+
+#: plugins/RemoteControl/webroot/js/api/properties.js:28
+msgid "Could not retrieve property list"
+msgstr "無法取回屬性清單"
+
+#: plugins/RemoteControl/webroot/js/api/properties.js:89
+#: plugins/RemoteControl/webroot/js/api/properties.js:110
+msgid "Property '%1' not accepted by server: "
+msgstr "伺服器不接受 '%1' 的屬性: "
+
+#: plugins/RemoteControl/webroot/js/api/properties.js:96
+msgid "Error sending property '%1' to server: "
+msgstr "傳送 '%1' 的屬性到伺服器發生錯誤: "
+
+#: plugins/RemoteControl/webroot/js/api/remotecontrol.js:197
+msgid "Error sending command to server: "
+msgstr "傳送指令到伺服器發生錯誤: "
+
+#: plugins/RemoteControl/webroot/js/api/scripts.js:27
+msgid "Could not retrieve script list"
+msgstr "無法取回腳本(Script)清單"
+
+#: plugins/RemoteControl/webroot/js/api/search.js:35
+msgid "querying"
+msgstr "搜索"
+
+#: plugins/RemoteControl/webroot/js/api/search.js:44
+msgid "Error (%1)"
+msgstr "錯誤 (%1)"
+
+#: plugins/RemoteControl/webroot/js/api/search.js:60
+msgid "Error performing Simbad lookup"
+msgstr "執行 Simbad 檢索時出錯"
+
+#: plugins/RemoteControl/webroot/js/api/search.js:79 index.html:219
+#: tablet7in.html:235
+msgid "idle"
+msgstr "閒置"
+
+#: plugins/RemoteControl/webroot/js/api/search.js:105
+msgid "Error loading object types"
+msgstr "載入天體類型時出錯"
+
+#: plugins/RemoteControl/webroot/js/api/search.js:138
+msgid "Error getting object list"
+msgstr "載入天體清單時出錯"
+
+#: plugins/RemoteControl/webroot/js/api/search.js:200
+msgid "waiting"
+msgstr "等待"
+
+#: plugins/RemoteControl/webroot/js/api/viewoptions.js:38
+msgid "Could not retrieve projection list"
+msgstr "無法取回投影法清單"
+
+#: plugins/RemoteControl/webroot/js/api/viewoptions.js:51
+#: plugins/RemoteControl/webroot/js/api/viewoptions.js:64
+msgid "Could not retrieve landscape list"
+msgstr "無法取回地景清單"
+
+#: plugins/RemoteControl/webroot/js/plugins/scenery3d.js:22
+#: plugins/RemoteControl/webroot/js/ui/scripts.js:76 index.html:628
+#: index.html:685 tablet7in.html:733 tablet7in.html:793
+msgid "-none-"
+msgstr "- 無 -"
+
+#: plugins/RemoteControl/webroot/js/plugins/scenery3d.js:28
+msgid "(Currently loading: %1)"
+msgstr "(目前載入:%1)"
+
+#: plugins/RemoteControl/webroot/js/plugins/scenery3d.js:71
+msgid "Could not retrieve Scenery3d list"
+msgstr "無法取回3d場景列表"
+
+#: plugins/RemoteControl/webroot/js/ui/actions.js:44
+#: plugins/RemoteControl/webroot/js/ui/actions.js:77
+msgid "on"
+msgstr "開"
+
+#: plugins/RemoteControl/webroot/js/ui/actions.js:44
+#: plugins/RemoteControl/webroot/js/ui/actions.js:77
+msgid "off"
+msgstr "關"
+
+#: plugins/RemoteControl/webroot/js/ui/combobox.js:58
+msgid "Show All Items"
+msgstr "顯示全部項目"
+
+#: plugins/RemoteControl/webroot/js/ui/combobox.js:124
+msgid "Input did not match any item"
+msgstr "輸入並未匹配任何項目"
+
+#: plugins/RemoteControl/webroot/js/ui/search.js:285
+msgid "No current selection"
+msgstr "目前並無選取任何天體"
+
+#: index.html:5 tablet7in.html:5
+msgid "Stellarium remote control plugin"
+msgstr "Stellarium 遠端控制外掛程式"
+
+#: index.html:17 tablet7in.html:18
+msgid "Please wait, loading"
+msgstr "載入中，請稍後"
+
+#: index.html:26 tablet7in.html:27
+msgid "Stellarium remote control"
+msgstr "Stellarium 遠端控制"
+
+#: index.html:30 tablet7in.html:31
+msgid "Main controls"
+msgstr "主要控制"
+
+#: index.html:33 tablet7in.html:38
+msgid "DSO"
+msgstr "深空天體"
+
+#: index.html:36
+msgid "Actions and scripts"
+msgstr "操控與腳本"
+
+#: index.html:39 tablet7in.html:45
+msgid "Scenery3d"
+msgstr "3d場景"
+
+#: index.html:77
+msgid "Pause"
+msgstr "暫停"
+
+#: index.html:82 tablet7in.html:183
+msgid "Time jumps"
+msgstr "時間跳轉"
+
+#: index.html:86 tablet7in.html:187
+msgid "Solar hour"
+msgstr "太陽時"
+
+#: index.html:87 tablet7in.html:188
+msgid "Solar day"
+msgstr "太陽日"
+
+#: index.html:88 tablet7in.html:189
+msgid "Solar week"
+msgstr "太陽周"
+
+#: index.html:91 tablet7in.html:192
+msgid "Sidereal year"
+msgstr "恆星年"
+
+#: index.html:92 tablet7in.html:193
+msgid "Sidereal century"
+msgstr "恆星世紀"
+
+#: index.html:94 tablet7in.html:195
+msgid "Synodic month"
+msgstr "朔望月"
+
+#: index.html:95 tablet7in.html:196
+msgid "Draconic month"
+msgstr "交點月"
+
+#: index.html:96 tablet7in.html:197
+msgid "Draconic year"
+msgstr "交點年"
+
+#: index.html:98 tablet7in.html:210
+msgid "Gaussian year"
+msgstr "高斯(Gaussian)年"
+
+#: index.html:101 tablet7in.html:200
+msgid "Anomalistic month"
+msgstr "近點月"
+
+#: index.html:102 tablet7in.html:201
+msgid "Anomalistic year"
+msgstr "近點年"
+
+#: index.html:103 tablet7in.html:202
+msgid "Anomalistic century"
+msgstr "近點世紀"
+
+#: index.html:105 tablet7in.html:204
+msgid "Mean tropical month"
+msgstr "平回歸月"
+
+#: index.html:106 tablet7in.html:205
+msgid "Mean tropical year"
+msgstr "平回歸年"
+
+#: index.html:107 tablet7in.html:206
+msgid "Mean tropical century"
+msgstr "平回歸世紀"
+
+#: index.html:109 tablet7in.html:208
+msgid "Tropical year"
+msgstr "回歸年"
+
+#: index.html:110 tablet7in.html:209
+msgid "Julian year"
+msgstr "儒略年"
+
+#: index.html:111 tablet7in.html:211
+msgid "Julian century"
+msgstr "儒略世紀"
+
+#: index.html:123 tablet7in.html:101
+msgid "View towards horizon at Azimuth"
+msgstr "面對水平並轉向地平經度"
+
+#: index.html:144 tablet7in.html:123
+msgid "Vertical View offset"
+msgstr "垂直視野偏移"
+
+#: index.html:154 tablet7in.html:133
+msgid "Reset"
+msgstr "重置"
+
+#: index.html:160 tablet7in.html:138
+msgid "FOV"
+msgstr "FOV"
+
+#: index.html:213 tablet7in.html:229
+msgid "Enter search term. Use TAB to navigate results."
+msgstr "輸入欲搜尋項目，使用 TAB 鍵指引結果"
+
+#: index.html:214 tablet7in.html:230
+msgid "Select and focus"
+msgstr "選取和置中"
+
+#: index.html:240 tablet7in.html:259
+msgid "Selection mode"
+msgstr "選擇模式"
+
+#: index.html:240 tablet7in.html:259
+msgid "Center on object"
+msgstr "天體置中"
+
+#: index.html:240 tablet7in.html:259
+msgid "Center and zoom to object"
+msgstr "天體置中並放大"
+
+#: index.html:240 tablet7in.html:259
+msgid "Just mark the object"
+msgstr "僅標示天體"
+
+#: index.html:242 tablet7in.html:261
+msgid "Quick select"
+msgstr "快速選取"
+
+#: index.html:246 tablet7in.html:265
+msgid "Earth"
+msgstr "地球"
+
+#: index.html:246 tablet7in.html:265
+msgid "Pluto"
+msgstr "冥王星"
+
+#: index.html:252 tablet7in.html:294
+msgid "Current selection"
+msgstr "目前的選取"
+
+#: index.html:268 tablet7in.html:321
+msgid "Milky Way brightness:"
+msgstr "銀河亮度:"
+
+#: index.html:272 tablet7in.html:333
+msgid "Digitized Sky Survey"
+msgstr "數位巡天"
+
+#: index.html:273 tablet7in.html:334
+msgid "HiPS Survey"
+msgstr "HiPS 巡測"
+
+#: index.html:287 tablet7in.html:351
+msgid "Show planet orbits"
+msgstr "顯示行星軌道"
+
+#: index.html:288 tablet7in.html:352
+msgid "Show planet orbits only"
+msgstr "僅顯示行星軌道"
+
+#: index.html:289 tablet7in.html:353
+msgid "Show orbit for selected planet"
+msgstr "顯示選取行星的軌道"
+
+#: index.html:290 tablet7in.html:354
+msgid "Show planet trails"
+msgstr "顯示行星軌跡"
+
+#: index.html:291 tablet7in.html:355
+msgid "Show trail only for selected planet"
+msgstr "僅顯示選取行星的軌跡"
+
+#: index.html:322 tablet7in.html:409
+msgid "Shooting Stars"
+msgstr "流星"
+
+#: index.html:323 tablet7in.html:410
+msgid "ZHR:"
+msgstr "ZHR:"
+
+#: index.html:368 tablet7in.html:463
+msgid ""
+"Instantaneous circles of earth´s axis on its motion around ecliptical poles."
+" Displayed on Earth only."
+msgstr "地軸圍繞黃極轉旋轉的瞬時圓，僅顯示於地球。"
+
+#: index.html:377 tablet7in.html:472
+msgid "Solstices"
+msgstr "二至點"
+
+#: index.html:378 tablet7in.html:473
+msgid "Crossquarters"
+msgstr "切四分點"
+
+#: index.html:379 tablet7in.html:474
+msgid "Major Standstill"
+msgstr "主要停頓點"
+
+#: index.html:380 tablet7in.html:475
+msgid "Minor Standstill"
+msgstr "次要停頓點"
+
+#: index.html:389 tablet7in.html:484
+msgid "Current Planet:"
+msgstr "目前的行星:"
+
+#: index.html:429 tablet7in.html:524
+msgid "Catalogue of Reflection Nebulae (Van den Bergh, 1966)"
+msgstr "反射星雲表(Van den Bergh, 1966)"
+
+#: index.html:447 tablet7in.html:542
+msgid ""
+"Catalogue of southern stars embedded in nebulosity (van den Bergh+, 1975)"
+msgstr "南天的星雲內嵌恆星表（Van den Bergh+, 1975）"
+
+#: index.html:502
+msgid "Objects without identifier"
+msgstr "沒有識別符號的天體"
+
+#: index.html:527 tablet7in.html:616
+msgid "Bright Nebulae"
+msgstr "明亮星雲"
+
+#: index.html:528 tablet7in.html:617
+msgid "Dark Nebulae"
+msgstr "暗星雲"
+
+#: index.html:529 tablet7in.html:618
+msgid "Planetary Nebulae"
+msgstr "行星狀星雲"
+
+#: index.html:538 tablet7in.html:627
+msgid "Labels and markers"
+msgstr "標籤與標記"
+
+#: index.html:563 tablet7in.html:652
+msgid "Use associated planet and position"
+msgstr "使用該地景所在的行星與地點"
+
+#: index.html:572 tablet7in.html:661
+msgid "Show illumination"
+msgstr "顯示光害"
+
+#: index.html:577 tablet7in.html:667
+msgid "Current landscape"
+msgstr "目前的地景"
+
+#: index.html:589 tablet7in.html:680
+msgid "Show lines with thickness"
+msgstr "以粗線顯示"
+
+#: index.html:594 tablet7in.html:685
+msgid "Show asterisms with thickness"
+msgstr "以粗線顯示星群"
+
+#: index.html:598 tablet7in.html:689
+msgid "Show ray helpers with thickness"
+msgstr "以粗線顯示輔助線"
+
+#: index.html:606 tablet7in.html:699
+msgid "Show boundaries with thickness"
+msgstr "以粗線顯示星座界線"
+
+#: index.html:611 tablet7in.html:704
+msgid "Constellation selection isolated"
+msgstr "選取單一星座"
+
+#: index.html:615 tablet7in.html:708
+msgid "Current sky culture"
+msgstr "目前的星空述語"
+
+#: index.html:628 tablet7in.html:733
+msgid "Active script:"
+msgstr "執行中的腳本(script):"
+
+#: index.html:629 tablet7in.html:734
+msgid "Run selected script"
+msgstr "執行選取的腳本"
+
+#: index.html:629 tablet7in.html:734
+msgid "Stop current script"
+msgstr "停止目前的腳本"
+
+#: index.html:634 tablet7in.html:41 tablet7in.html:718
+msgid "Actions"
+msgstr "操控"
+
+#: index.html:638 tablet7in.html:722
+msgid "Run/toggle action"
+msgstr "執行/切換開關 指令"
+
+#: index.html:649 tablet7in.html:757
+msgid "Planet map"
+msgstr "行星地圖"
+
+#: index.html:650 tablet7in.html:758
+msgid "Planet map pointer"
+msgstr "行星地圖指標"
+
+#: index.html:654 tablet7in.html:762
+msgid "Type to search location"
+msgstr "輸入以搜尋位置"
+
+#: index.html:683 tablet7in.html:791
+msgid "Interaction"
+msgstr "互動"
+
+#: index.html:684 tablet7in.html:792
+msgid "Current scene:"
+msgstr "目前地景:"
+
+#: index.html:687 tablet7in.html:795
+msgid "View controls"
+msgstr "視野控制"
+
+#: index.html:693 tablet7in.html:801
+msgid "Movement controls"
+msgstr "移動控制"
+
+#: index.html:705 tablet7in.html:813
+msgid "Torchlight"
+msgstr "光照"
+
+#: index.html:712 tablet7in.html:820
+msgid "Scene selection"
+msgstr "地景選擇"
+
+#: index.html:716 tablet7in.html:824
+msgid "Load selected scene"
+msgstr "載入選取的地景"
+
+#: index.html:740 tablet7in.html:849
+msgid "No response from server"
+msgstr "伺服器沒有回應"
+
+#: index.html:741 tablet7in.html:850
+msgid "No response from server for %1 seconds. Is Stellarium still running?"
+msgstr "伺服器沒有回應已超過 %1 秒，Stellarium 是否仍在運行？"
+
+#: tablet7in.html:32
+msgid "Time Jump"
+msgstr "時間跳轉"
+
+#: tablet7in.html:37
+msgid "Grids"
+msgstr "格線"
+
+#: tablet7in.html:97
+msgid "Up/Left"
+msgstr "上/左"
+
+#: tablet7in.html:97
+msgid "Up"
+msgstr "上"
+
+#: tablet7in.html:97
+msgid "Up/Right"
+msgstr "上/右"
+
+#: tablet7in.html:97
+msgid "Left"
+msgstr "左"
+
+#: tablet7in.html:97
+msgid "Focus on selected object"
+msgstr "將選取天體置中"
+
+#: tablet7in.html:97
+msgid "Focus on selection"
+msgstr "將選取置中"
+
+#: tablet7in.html:97
+msgid "Right"
+msgstr "右"
+
+#: tablet7in.html:97
+msgid "Down/Left"
+msgstr "下/左"
+
+#: tablet7in.html:97
+msgid "Down"
+msgstr "下"
+
+#: tablet7in.html:97
+msgid "Down/Right"
+msgstr "下/右"
+
+#: tablet7in.html:266
+msgid "Sirius"
+msgstr "天狼"
+
+#: tablet7in.html:267
+msgid "Arcturus"
+msgstr "大角"
+
+#: tablet7in.html:268
+msgid "Capella"
+msgstr "五車二"
+
+#: tablet7in.html:269
+msgid "Vega"
+msgstr "織女一"
+
+#: tablet7in.html:270
+msgid "Deneb"
+msgstr "天津四"
+
+#: tablet7in.html:271
+msgid "Altair"
+msgstr "河鼓二(牛郎)"
+
+#: tablet7in.html:272
+msgid "Andromeda Galaxy"
+msgstr "仙女座星系"
+
+#: tablet7in.html:273
+msgid "Hercules Cluster"
+msgstr "武仙座星團"
+
+#: tablet7in.html:274
+msgid "Orion Nebula"
+msgstr "獵戶座星雲"
+
+#: tablet7in.html:275
+msgid "Eta Carinae Nebula"
+msgstr "船底座η星雲"
+
+#: tablet7in.html:276
+msgid "47 Tucanae Cluster"
+msgstr "杜鵑座47星團"
+
+#: tablet7in.html:277
+msgid "Aries"
+msgstr "白羊座"
+
+#: tablet7in.html:278
+msgid "Taurus"
+msgstr "金牛座"
+
+#: tablet7in.html:279
+msgid "Gemini"
+msgstr "雙子座"
+
+#: tablet7in.html:280
+msgid "Cancer"
+msgstr "巨蟹座"
+
+#: tablet7in.html:281
+msgid "Leo"
+msgstr "獅子座"
+
+#: tablet7in.html:282
+msgid "Virgo"
+msgstr "室女座"
+
+#: tablet7in.html:283
+msgid "Libra"
+msgstr "天秤座"
+
+#: tablet7in.html:284
+msgid "Scorpius"
+msgstr "天蝎座"
+
+#: tablet7in.html:285
+msgid "Sagittarius"
+msgstr "人馬座"
+
+#: tablet7in.html:286
+msgid "Capricornus"
+msgstr "摩羯座"
+
+#: tablet7in.html:287
+msgid "Aquarius"
+msgstr "寶瓶座"
+
+#: tablet7in.html:288
+msgid "Pisces"
+msgstr "雙魚座"
+
+#: tablet7in.html:742
+msgid "Favorites"
+msgstr "喜好"
+
+#: tablet7in.html:744
+msgid "Show 1"
+msgstr "顯示 1"
+
+#: tablet7in.html:745
+msgid "Remove Labels and Images"
+msgstr "移除名稱標籤和影像"
+
+#: tablet7in.html:745
+msgid "Cleanup Screen"
+msgstr "清空螢幕"

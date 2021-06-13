@@ -1,0 +1,665 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Stellarium's team
+# This file is distributed under the same license as the stellarium-remotecontrol package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Alexander Shopov <ash@kambanaria.org>, 2019
+# Georgi Georgiev (Жоро) <g.georgiev.shumen@gmail.com>, 2020
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: stellarium-remotecontrol\n"
+"Report-Msgid-Bugs-To: stellarium@googlegroups.com\n"
+"POT-Creation-Date: 2020-11-21 16:45+0700\n"
+"PO-Revision-Date: 2017-11-29 01:19+0000\n"
+"Last-Translator: Georgi Georgiev (Жоро) <g.georgiev.shumen@gmail.com>, 2020\n"
+"Language-Team: Bulgarian (https://www.transifex.com/stellarium/teams/80998/bg/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: bg\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: plugins/RemoteControl/webroot/js/api/actions.js:60
+msgid "Could not retrieve action list"
+msgstr "Списъкът с действия не може да бъде получен"
+
+#: plugins/RemoteControl/webroot/js/api/actions.js:88
+msgid "Action '%1' not accepted by server: "
+msgstr "Сървърът не приема действие „%1“: "
+
+#: plugins/RemoteControl/webroot/js/api/actions.js:95
+msgid "Error sending action '%1' to server: "
+msgstr "Грешка при изпращане на действие „%1“ към сървъра: "
+
+#: plugins/RemoteControl/webroot/js/api/location.js:33
+#: plugins/RemoteControl/webroot/js/api/location.js:61
+#: plugins/RemoteControl/webroot/js/api/search.js:188
+msgid "Error performing search"
+msgstr "Грешка при търсене"
+
+#: plugins/RemoteControl/webroot/js/api/location.js:125
+msgid "Could not retrieve country list"
+msgstr "Списъкът с държави не е получен"
+
+#: plugins/RemoteControl/webroot/js/api/location.js:138
+msgid "Could not retrieve planet list"
+msgstr "Списъкът с планети не е получен"
+
+#: plugins/RemoteControl/webroot/js/api/properties.js:28
+msgid "Could not retrieve property list"
+msgstr "Списъкът със свойства не е получен"
+
+#: plugins/RemoteControl/webroot/js/api/properties.js:89
+#: plugins/RemoteControl/webroot/js/api/properties.js:110
+msgid "Property '%1' not accepted by server: "
+msgstr "Сървърът не приема свойство „%1“: "
+
+#: plugins/RemoteControl/webroot/js/api/properties.js:96
+msgid "Error sending property '%1' to server: "
+msgstr "Грешка при изпращане на свойство „%1“ към сървъра:"
+
+#: plugins/RemoteControl/webroot/js/api/remotecontrol.js:197
+msgid "Error sending command to server: "
+msgstr "Грешка при изпращане на команда към сървъра: "
+
+#: plugins/RemoteControl/webroot/js/api/scripts.js:27
+msgid "Could not retrieve script list"
+msgstr "Списъкът със скриптове не е получен"
+
+#: plugins/RemoteControl/webroot/js/api/search.js:35
+msgid "querying"
+msgstr "запитване"
+
+#: plugins/RemoteControl/webroot/js/api/search.js:44
+msgid "Error (%1)"
+msgstr "Грешка (%1)"
+
+#: plugins/RemoteControl/webroot/js/api/search.js:60
+msgid "Error performing Simbad lookup"
+msgstr "Грешка при търсенето в Simbad"
+
+#: plugins/RemoteControl/webroot/js/api/search.js:79 index.html:219
+#: tablet7in.html:235
+msgid "idle"
+msgstr "бездействане"
+
+#: plugins/RemoteControl/webroot/js/api/search.js:105
+msgid "Error loading object types"
+msgstr "Грешка при зареждането на списъка с видовете обекти"
+
+#: plugins/RemoteControl/webroot/js/api/search.js:138
+msgid "Error getting object list"
+msgstr "Грешка при зареждането на списъка с обектите"
+
+#: plugins/RemoteControl/webroot/js/api/search.js:200
+msgid "waiting"
+msgstr "изчакване"
+
+#: plugins/RemoteControl/webroot/js/api/viewoptions.js:38
+msgid "Could not retrieve projection list"
+msgstr "Списъкът с проекции не може да бъде получен"
+
+#: plugins/RemoteControl/webroot/js/api/viewoptions.js:51
+#: plugins/RemoteControl/webroot/js/api/viewoptions.js:64
+msgid "Could not retrieve landscape list"
+msgstr "Списъкът с пейзажи не може да бъде получен"
+
+#: plugins/RemoteControl/webroot/js/plugins/scenery3d.js:22
+#: plugins/RemoteControl/webroot/js/ui/scripts.js:76 index.html:628
+#: index.html:685 tablet7in.html:733 tablet7in.html:793
+msgid "-none-"
+msgstr "-няма-"
+
+#: plugins/RemoteControl/webroot/js/plugins/scenery3d.js:28
+msgid "(Currently loading: %1)"
+msgstr "(Зареждат се: %1)"
+
+#: plugins/RemoteControl/webroot/js/plugins/scenery3d.js:71
+msgid "Could not retrieve Scenery3d list"
+msgstr "Списъкът с тримерни сцени не може да бъде получен"
+
+#: plugins/RemoteControl/webroot/js/ui/actions.js:44
+#: plugins/RemoteControl/webroot/js/ui/actions.js:77
+msgid "on"
+msgstr "включено"
+
+#: plugins/RemoteControl/webroot/js/ui/actions.js:44
+#: plugins/RemoteControl/webroot/js/ui/actions.js:77
+msgid "off"
+msgstr "изключено"
+
+#: plugins/RemoteControl/webroot/js/ui/combobox.js:58
+msgid "Show All Items"
+msgstr "Покажи всички"
+
+#: plugins/RemoteControl/webroot/js/ui/combobox.js:124
+msgid "Input did not match any item"
+msgstr "Никой елемент не съответства"
+
+#: plugins/RemoteControl/webroot/js/ui/search.js:285
+msgid "No current selection"
+msgstr "Нищо не е избрано"
+
+#: index.html:5 tablet7in.html:5
+msgid "Stellarium remote control plugin"
+msgstr "Приставка на Stellarium за отдалечено управление"
+
+#: index.html:17 tablet7in.html:18
+msgid "Please wait, loading"
+msgstr "Моля изчакайте, зарежда се"
+
+#: index.html:26 tablet7in.html:27
+msgid "Stellarium remote control"
+msgstr "Отдалечено управление на Stellarium"
+
+#: index.html:30 tablet7in.html:31
+msgid "Main controls"
+msgstr "Основно управление"
+
+#: index.html:33 tablet7in.html:38
+msgid "DSO"
+msgstr "Обекти от дълбокото небе"
+
+#: index.html:36
+msgid "Actions and scripts"
+msgstr "Действия и скриптове"
+
+#: index.html:39 tablet7in.html:45
+msgid "Scenery3d"
+msgstr "Тримерни сцени"
+
+#: index.html:77
+msgid "Pause"
+msgstr "Пауза"
+
+#: index.html:82 tablet7in.html:183
+msgid "Time jumps"
+msgstr "Интервали от време"
+
+#: index.html:86 tablet7in.html:187
+msgid "Solar hour"
+msgstr "Слънчев час"
+
+#: index.html:87 tablet7in.html:188
+msgid "Solar day"
+msgstr "Слънчев ден"
+
+#: index.html:88 tablet7in.html:189
+msgid "Solar week"
+msgstr "Слънчева седмица"
+
+#: index.html:91 tablet7in.html:192
+msgid "Sidereal year"
+msgstr "Сидерична година"
+
+#: index.html:92 tablet7in.html:193
+msgid "Sidereal century"
+msgstr "Сидеричен век"
+
+#: index.html:94 tablet7in.html:195
+msgid "Synodic month"
+msgstr "Синодичен месец"
+
+#: index.html:95 tablet7in.html:196
+msgid "Draconic month"
+msgstr "Драконичен месец"
+
+#: index.html:96 tablet7in.html:197
+msgid "Draconic year"
+msgstr "Драконична година"
+
+#: index.html:98 tablet7in.html:210
+msgid "Gaussian year"
+msgstr "Гаусова година"
+
+#: index.html:101 tablet7in.html:200
+msgid "Anomalistic month"
+msgstr "Аномалистичен месец"
+
+#: index.html:102 tablet7in.html:201
+msgid "Anomalistic year"
+msgstr "Аномалистична година"
+
+#: index.html:103 tablet7in.html:202
+msgid "Anomalistic century"
+msgstr "Аномалистичен век"
+
+#: index.html:105 tablet7in.html:204
+msgid "Mean tropical month"
+msgstr "Среден тропичен месец"
+
+#: index.html:106 tablet7in.html:205
+msgid "Mean tropical year"
+msgstr "Средна тропична година"
+
+#: index.html:107 tablet7in.html:206
+msgid "Mean tropical century"
+msgstr "Среден тропичен век"
+
+#: index.html:109 tablet7in.html:208
+msgid "Tropical year"
+msgstr "Тропична година"
+
+#: index.html:110 tablet7in.html:209
+msgid "Julian year"
+msgstr "Юлианска година"
+
+#: index.html:111 tablet7in.html:211
+msgid "Julian century"
+msgstr "Юлиански век"
+
+#: index.html:123 tablet7in.html:101
+msgid "View towards horizon at Azimuth"
+msgstr "Изглед към хоризонта при азимут"
+
+#: index.html:144 tablet7in.html:123
+msgid "Vertical View offset"
+msgstr "Отместване на изгледа по вертикала"
+
+#: index.html:154 tablet7in.html:133
+msgid "Reset"
+msgstr "Изчистване"
+
+#: index.html:160 tablet7in.html:138
+msgid "FOV"
+msgstr "Зрително поле"
+
+#: index.html:213 tablet7in.html:229
+msgid "Enter search term. Use TAB to navigate results."
+msgstr "Въведи търсеното. Използвай TAB за навигация в резултатите."
+
+#: index.html:214 tablet7in.html:230
+msgid "Select and focus"
+msgstr "Избери и фокусирай"
+
+#: index.html:240 tablet7in.html:259
+msgid "Selection mode"
+msgstr "Режим на избор"
+
+#: index.html:240 tablet7in.html:259
+msgid "Center on object"
+msgstr "Центрирай обекта"
+
+#: index.html:240 tablet7in.html:259
+msgid "Center and zoom to object"
+msgstr "Центрирай и увеличи обекта"
+
+#: index.html:240 tablet7in.html:259
+msgid "Just mark the object"
+msgstr "Само отбележи обекта"
+
+#: index.html:242 tablet7in.html:261
+msgid "Quick select"
+msgstr "Бърз избор"
+
+#: index.html:246 tablet7in.html:265
+msgid "Earth"
+msgstr "Земя"
+
+#: index.html:246 tablet7in.html:265
+msgid "Pluto"
+msgstr "Плутон"
+
+#: index.html:252 tablet7in.html:294
+msgid "Current selection"
+msgstr "Текущ избор"
+
+#: index.html:268 tablet7in.html:321
+msgid "Milky Way brightness:"
+msgstr "Яркост на Млечния път:"
+
+#: index.html:272 tablet7in.html:333
+msgid "Digitized Sky Survey"
+msgstr "Цифровизиран обзор на небето"
+
+#: index.html:273 tablet7in.html:334
+msgid "HiPS Survey"
+msgstr "HiPS Обзор"
+
+#: index.html:287 tablet7in.html:351
+msgid "Show planet orbits"
+msgstr "Орбити на планетите"
+
+#: index.html:288 tablet7in.html:352
+msgid "Show planet orbits only"
+msgstr "Само орбити на планетите"
+
+#: index.html:289 tablet7in.html:353
+msgid "Show orbit for selected planet"
+msgstr "Орбита на избраната планета"
+
+#: index.html:290 tablet7in.html:354
+msgid "Show planet trails"
+msgstr "Следи на планетите"
+
+#: index.html:291 tablet7in.html:355
+msgid "Show trail only for selected planet"
+msgstr "Следа само от избраната планета"
+
+#: index.html:322 tablet7in.html:409
+msgid "Shooting Stars"
+msgstr "Падащи звезди"
+
+#: index.html:323 tablet7in.html:410
+msgid "ZHR:"
+msgstr "ZHR:"
+
+#: index.html:368 tablet7in.html:463
+msgid ""
+"Instantaneous circles of earth´s axis on its motion around ecliptical poles."
+" Displayed on Earth only."
+msgstr ""
+"Кръговете, очертани от земната ос при движението на Земята спрямо "
+"еклиптичните полюси. (налично само за Земята)"
+
+#: index.html:377 tablet7in.html:472
+msgid "Solstices"
+msgstr "Слънцестоене"
+
+#: index.html:378 tablet7in.html:473
+msgid "Crossquarters"
+msgstr "Годишни осмини"
+
+#: index.html:379 tablet7in.html:474
+msgid "Major Standstill"
+msgstr "Голямо луностоене"
+
+#: index.html:380 tablet7in.html:475
+msgid "Minor Standstill"
+msgstr "Малко луностоене"
+
+#: index.html:389 tablet7in.html:484
+msgid "Current Planet:"
+msgstr "Текуща планета:"
+
+#: index.html:429 tablet7in.html:524
+msgid "Catalogue of Reflection Nebulae (Van den Bergh, 1966)"
+msgstr "Каталог на отражателните мъглявини (Van den Bergh, 1966)"
+
+#: index.html:447 tablet7in.html:542
+msgid ""
+"Catalogue of southern stars embedded in nebulosity (van den Bergh+, 1975)"
+msgstr "Каталог на южните звезди свързани с мъглявини (van den Bergh+, 1975)"
+
+#: index.html:502
+msgid "Objects without identifier"
+msgstr "Обекти без идентификатор"
+
+#: index.html:527 tablet7in.html:616
+msgid "Bright Nebulae"
+msgstr "Ярки мъглявини"
+
+#: index.html:528 tablet7in.html:617
+msgid "Dark Nebulae"
+msgstr "Тъмни мъглявини"
+
+#: index.html:529 tablet7in.html:618
+msgid "Planetary Nebulae"
+msgstr "Планетарни мъглявини"
+
+#: index.html:538 tablet7in.html:627
+msgid "Labels and markers"
+msgstr "Етикети и маркери"
+
+#: index.html:563 tablet7in.html:652
+msgid "Use associated planet and position"
+msgstr "Използвай асоциираната планета и позиция"
+
+#: index.html:572 tablet7in.html:661
+msgid "Show illumination"
+msgstr "Осветление"
+
+#: index.html:577 tablet7in.html:667
+msgid "Current landscape"
+msgstr "Текущ пейзаж"
+
+#: index.html:589 tablet7in.html:680
+msgid "Show lines with thickness"
+msgstr "Дебели линии"
+
+#: index.html:594 tablet7in.html:685
+msgid "Show asterisms with thickness"
+msgstr "Дебели линии на астеризмите"
+
+#: index.html:598 tablet7in.html:689
+msgid "Show ray helpers with thickness"
+msgstr "Насочващи лъчи с дебелина"
+
+#: index.html:606 tablet7in.html:699
+msgid "Show boundaries with thickness"
+msgstr "Граници с дебелина"
+
+#: index.html:611 tablet7in.html:704
+msgid "Constellation selection isolated"
+msgstr "Отдѐлен избор на съзвездия"
+
+#: index.html:615 tablet7in.html:708
+msgid "Current sky culture"
+msgstr "Текуща небесна култура"
+
+#: index.html:628 tablet7in.html:733
+msgid "Active script:"
+msgstr "Активен скрипт:"
+
+#: index.html:629 tablet7in.html:734
+msgid "Run selected script"
+msgstr "Изпълни избрания скрипт"
+
+#: index.html:629 tablet7in.html:734
+msgid "Stop current script"
+msgstr "Спри текущия скрипт"
+
+#: index.html:634 tablet7in.html:41 tablet7in.html:718
+msgid "Actions"
+msgstr "Действия"
+
+#: index.html:638 tablet7in.html:722
+msgid "Run/toggle action"
+msgstr "Изпълни/превключи действие"
+
+#: index.html:649 tablet7in.html:757
+msgid "Planet map"
+msgstr "Планетна карта"
+
+#: index.html:650 tablet7in.html:758
+msgid "Planet map pointer"
+msgstr "Указател на планетната карта"
+
+#: index.html:654 tablet7in.html:762
+msgid "Type to search location"
+msgstr "Въведи текст за търсене на местоположението"
+
+#: index.html:683 tablet7in.html:791
+msgid "Interaction"
+msgstr "Взаимодействие"
+
+#: index.html:684 tablet7in.html:792
+msgid "Current scene:"
+msgstr "Текуща сцена:"
+
+#: index.html:687 tablet7in.html:795
+msgid "View controls"
+msgstr "Управление на изгледа"
+
+#: index.html:693 tablet7in.html:801
+msgid "Movement controls"
+msgstr "Управление на движението"
+
+#: index.html:705 tablet7in.html:813
+msgid "Torchlight"
+msgstr "Факелно осветление"
+
+#: index.html:712 tablet7in.html:820
+msgid "Scene selection"
+msgstr "Избор на сцена"
+
+#: index.html:716 tablet7in.html:824
+msgid "Load selected scene"
+msgstr "Зареди избраната сцена"
+
+#: index.html:740 tablet7in.html:849
+msgid "No response from server"
+msgstr "Сървърът не отговаря"
+
+#: index.html:741 tablet7in.html:850
+msgid "No response from server for %1 seconds. Is Stellarium still running?"
+msgstr "От %1 секунди сървърът не отговаря. Stellarium работи ли все още?"
+
+#: tablet7in.html:32
+msgid "Time Jump"
+msgstr "Времеви интервал"
+
+#: tablet7in.html:37
+msgid "Grids"
+msgstr "Мрежи"
+
+#: tablet7in.html:97
+msgid "Up/Left"
+msgstr "Нагоре/Наляво"
+
+#: tablet7in.html:97
+msgid "Up"
+msgstr "Нагоре"
+
+#: tablet7in.html:97
+msgid "Up/Right"
+msgstr "Нагоре/Надясно"
+
+#: tablet7in.html:97
+msgid "Left"
+msgstr "Наляво"
+
+#: tablet7in.html:97
+msgid "Focus on selected object"
+msgstr "Фокусирай избрания обект"
+
+#: tablet7in.html:97
+msgid "Focus on selection"
+msgstr "Фокусирай избраното"
+
+#: tablet7in.html:97
+msgid "Right"
+msgstr "Надясно"
+
+#: tablet7in.html:97
+msgid "Down/Left"
+msgstr "Надолу/Наляво"
+
+#: tablet7in.html:97
+msgid "Down"
+msgstr "Надолу"
+
+#: tablet7in.html:97
+msgid "Down/Right"
+msgstr "Надолу/Надясно"
+
+#: tablet7in.html:266
+msgid "Sirius"
+msgstr "Сириус"
+
+#: tablet7in.html:267
+msgid "Arcturus"
+msgstr "Арктур"
+
+#: tablet7in.html:268
+msgid "Capella"
+msgstr "Капела"
+
+#: tablet7in.html:269
+msgid "Vega"
+msgstr "Вега"
+
+#: tablet7in.html:270
+msgid "Deneb"
+msgstr "Денеб"
+
+#: tablet7in.html:271
+msgid "Altair"
+msgstr "Алтаир"
+
+#: tablet7in.html:272
+msgid "Andromeda Galaxy"
+msgstr "Галактика Андромеда"
+
+#: tablet7in.html:273
+msgid "Hercules Cluster"
+msgstr "Звезден куп Херкулес"
+
+#: tablet7in.html:274
+msgid "Orion Nebula"
+msgstr "Мъглявина Орион"
+
+#: tablet7in.html:275
+msgid "Eta Carinae Nebula"
+msgstr "Мъглявина Ета Кил"
+
+#: tablet7in.html:276
+msgid "47 Tucanae Cluster"
+msgstr "Звезден куп 47 от Тукан"
+
+#: tablet7in.html:277
+msgid "Aries"
+msgstr "Овен"
+
+#: tablet7in.html:278
+msgid "Taurus"
+msgstr "Бик"
+
+#: tablet7in.html:279
+msgid "Gemini"
+msgstr "Близнаци"
+
+#: tablet7in.html:280
+msgid "Cancer"
+msgstr "Рак"
+
+#: tablet7in.html:281
+msgid "Leo"
+msgstr "Лъв"
+
+#: tablet7in.html:282
+msgid "Virgo"
+msgstr "Дева"
+
+#: tablet7in.html:283
+msgid "Libra"
+msgstr "Везни"
+
+#: tablet7in.html:284
+msgid "Scorpius"
+msgstr "Скорпион"
+
+#: tablet7in.html:285
+msgid "Sagittarius"
+msgstr "Стрелец"
+
+#: tablet7in.html:286
+msgid "Capricornus"
+msgstr "Козирог"
+
+#: tablet7in.html:287
+msgid "Aquarius"
+msgstr "Водолей"
+
+#: tablet7in.html:288
+msgid "Pisces"
+msgstr "Риби"
+
+#: tablet7in.html:742
+msgid "Favorites"
+msgstr "Любими"
+
+#: tablet7in.html:744
+msgid "Show 1"
+msgstr "Демонстрация 1"
+
+#: tablet7in.html:745
+msgid "Remove Labels and Images"
+msgstr "Без етикети и изображения"
+
+#: tablet7in.html:745
+msgid "Cleanup Screen"
+msgstr "Изчисти екрана"

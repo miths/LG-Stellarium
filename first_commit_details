@@ -1,0 +1,17 @@
+list of parameters shared between master and slave
+-Field of View
+-J2000 coordinates
+-time rate
+-constellation art
+-constellation lines
+-constellation names
+-location (city)
+-atmosphere visibility
+-ground visibility
+-cardinal points visibility
+
+added StelLGConnect files for socket connection and data transfer
+
+added offset setting in lookAtJ2000()
+
+added facility to read master/slave, offset and ip address directly from user's config file.
