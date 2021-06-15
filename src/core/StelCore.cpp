@@ -712,8 +712,8 @@ void StelCore::lookAtJ2000(const Vec3d& pos, const Vec3d& aup, QSettings* conf)
         invertMatAltAzModelView = matAltAzModelView.inverse();
     } else {
         // CurrentFov is vertical fov. Compute Horizontal FOV in Radians.
-        //double hfov = movementMgr->getCurrentFov() * (double)currentProjectorParams.viewportXywh[2] / (double)currentProjectorParams.viewportXywh[3] * M_PI/180.;
-        double hfov = movementMgr->getCurrentFov() * 2 * M_PI/180.;
+        double hfov = movementMgr->getCurrentFov() * (double)currentProjectorParams.viewportXywh[2] / (double)currentProjectorParams.viewportXywh[3] * M_PI/180.;
+        //double hfov = movementMgr->getCurrentFov() * 2 * M_PI/180.;
         double fov= movementMgr->getCurrentFov();
         //std::cout<<" hfov "<<hfov<<" fov "<<fov<<" pos "<<pos<<" aup "<<aup<< endl;
         // angular offset from original view = offset*hfov
