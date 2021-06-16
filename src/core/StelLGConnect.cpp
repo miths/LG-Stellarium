@@ -109,13 +109,13 @@ void UDP_connect::LG_communicate_master(StelCore *core, StelMovementMgr *mmgr, Q
 		//receive the datagram
 		
 		while(1){
-			std::cout<<"in while loop"<< endl;
+			//std::cout<<"in while loop"<< endl;
 			len = sizeof(cliaddr);
 			int n = recvfrom(listenfd, buffer, sizeof(buffer),0, (struct sockaddr*)&cliaddr,&len); //receive message from server
-			puts(buffer);
+			////puts(buffer);
 			if (sizeof(buffer)> 0){
 				buffer[n] = '\0';
-				puts(buffer);
+				//puts(buffer);
 
 				//std::string filename(boost::archive::tmpdir());
 					//char filename = "/text.txt";
@@ -135,7 +135,7 @@ void UDP_connect::LG_communicate_master(StelCore *core, StelMovementMgr *mmgr, Q
 				const bool cstLin= GETSTELMODULE(ConstellationMgr)->getFlagLines();
 				const bool cstLbl= GETSTELMODULE(ConstellationMgr)->getFlagLabels();
 				const QString loc= msapi->getObserverLocation();
-				std::cout<<loc.toStdString()<< "loc here......"<<endl<<endl<<endl;
+				//std::cout<<loc.toStdString()<< "loc here......"<<endl<<endl<<endl;
 				//cout<<curr[0]<<" "<<curr[1]<<" "<<curr[2]<< endl;
 				//const Data g(mmgr-> getViewDirectionJ2000());
 				{
@@ -153,7 +153,7 @@ void UDP_connect::LG_communicate_master(StelCore *core, StelMovementMgr *mmgr, Q
 				std::string s= ss.str();
 				//std::string str =  ia;
 				sendto(listenfd, s.c_str() , MAXLINE, 0,(struct sockaddr*)&cliaddr, sizeof(cliaddr));
-				std::cout<<"sent new pos"<<endl;
+				//std::cout<<"sent new pos"<<endl;
 			}
 		}
 	}
@@ -202,14 +202,14 @@ void UDP_connect::LG_communicate_slave(StelCore *core, StelMovementMgr *mmgr, QS
         // no need to specify server address in sendto
         // connect stores the peers IP and port
         sendto(sockfd, message, MAXLINE, 0, (struct sockaddr*)NULL, sizeof(servaddr));
-        std::cout<<"in while loop2"<< endl;
+        //std::cout<<"in while loop2"<< endl;
         // waiting for response
         recvfrom(sockfd, buffer, sizeof(buffer), 0, (struct sockaddr*)NULL, NULL);
-        std::cout<<sizeof(buffer)<< endl;
+        //std::cout<<sizeof(buffer)<< endl;
         //if (sizeof(buffer)> 5){
-        std::cout<<"in while loop3"<< endl;
-        puts(buffer);
-        std::cout<<"in while loop4"<< endl;
+        //std::cout<<"in while loop3"<< endl;
+        //puts(buffer);
+        //std::cout<<"in while loop4"<< endl;
         char str[(sizeof(buffer)) + 1];
             memcpy(str, buffer, sizeof(buffer));
         str[sizeof(buffer)] = 0; // Null termination.
@@ -221,7 +221,7 @@ void UDP_connect::LG_communicate_slave(StelCore *core, StelMovementMgr *mmgr, QS
         //double currFov= mmgr->getCurrentFov();
         //double currSkyTime= core-> getPresetSkyTime();            
 
-        cout<< str<< endl;
+        //cout<< str<< endl;
             
         //boost::archive::text_iarchive ia(ss);
 
@@ -259,6 +259,11 @@ void UDP_connect::LG_communicate_slave(StelCore *core, StelMovementMgr *mmgr, QS
 /*
         if (Jday!= core->getMJDay()){core->setMJDay(Jday);}
 */
+	if (core->JD_changed== true){
+		core->setMJDay(Jday);
+		core->JD_changed= false;
+		cout<<"JD changed"<< endl;
+	}
         if (skyTime!= core-> getPresetSkyTime()){core->setPresetSkyTime(skyTime);}
         if (timeRate!= core->getTimeRate()){core->setTimeRate(timeRate);}
         if (atmFlag!= GETSTELMODULE(LandscapeMgr)->getFlagAtmosphere()){
@@ -289,7 +294,7 @@ void UDP_connect::LG_communicate_slave(StelCore *core, StelMovementMgr *mmgr, QS
         if (loc!= msapi->getObserverLocation()){
             //StelMainScriptAPI *msa= (StelMainScriptAPI*)GETSTELMODULE(StelMainScriptAPI);
             {msapi-> setObserverLocation(loc, 0);}
-            cout<<"loc changed................"<<endl<<endl<<endl;
+            //cout<<"loc changed................"<<endl<<endl<<endl;
         }
 
         //}

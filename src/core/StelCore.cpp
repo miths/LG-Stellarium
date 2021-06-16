@@ -689,7 +689,7 @@ void StelCore::lookAtJ2000(const Vec3d& pos, const Vec3d& aup, QSettings* conf)
     conf->endGroup();
     
     
-    std::cout<<offset<<" offset here"<< endl<< endl;
+    //std::cout<<offset<<" offset here"<< endl<< endl;
     
 
     Vec3d f(j2000ToAltAz(pos, RefractionOff));
@@ -1096,6 +1096,7 @@ qint64 StelCore::getMilliSecondsOfLastJDUpdate() const
 
 void StelCore::setJD(double newJD)
 {
+	std::cout<<"setJD "<<newJD<<endl<<endl;
 	JD.first=newJD;
 	JD.second=computeDeltaT(newJD);	
 	resetSync();
@@ -1109,6 +1110,7 @@ double StelCore::getJD() const
 void StelCore::setJDE(double newJDE)
 {
 	// nitpickerish this is not exact, but as good as it gets...
+	std::cout<<"setJDE "<<newJDE<<endl<<endl;
 	JD.second=computeDeltaT(newJDE);
 	JD.first=newJDE-JD.second/86400.0;
 	resetSync();
@@ -1122,6 +1124,7 @@ double StelCore::getJDE() const
 
 void StelCore::setMJDay(double MJD)
 {
+	JD_changed= true;
 	setJD(MJD+2400000.5);
 }
 
@@ -1137,6 +1140,7 @@ double StelCore::getPresetSkyTime() const
 
 void StelCore::setPresetSkyTime(double d)
 {
+	std::cout<<"presentSkyTimeSet "<<d<<endl<<endl;
 	presetSkyTime=d;
 }
 

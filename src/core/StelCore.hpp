@@ -72,6 +72,8 @@ class StelCore : public QObject
 	Q_PROPERTY(bool flagUseDST READ getUseDST WRITE setUseDST NOTIFY flagUseDSTChanged)
 
 public:
+	// JD change signal
+	bool JD_changed= false;
 	//! @enum FrameType
 	//! Supported reference frame types
 	enum FrameType
