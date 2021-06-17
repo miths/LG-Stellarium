@@ -13,82 +13,11 @@
 
 using namespace std;
 
-//StelCore *core;
-
-//StelMovementMgr *mmgr;
-
-//QSettings* conf;
-
-//conf = StelApp::getInstance().getSettings();
-
-/*
-class Data
-{
-private:
-    friend class boost::serialization::access;
-    // When the class Archive corresponds to an output archive, the
-    // & operator is defined similar to <<.  Likewise, when the class Archive
-    // is a type of input archive the & operator is defined similar to >>.
-    template<class Archive>
-    void serialize(Archive & ar, const unsigned int version)
-    {
-        ar & v1;
-    ar & v2;
-    ar & v3;
-    }
-        int v1;
-    int v2;
-    int v3;
-
-public:
-    Data(){};
-
-    Data(Vec3d v){
-        v1= v[0];
-        v2= v[1];
-        v3= v[2];
-    }
-
-    Vec3d getPos(){
-        Vec3d v;
-        v[0]= v1;
-        v[1]= v2;
-        v[2]= v3;
-        return v;    
-    }
-
-    void print(){
-        cout<< v1<< v2<< v3<< endl;
-    };
-
-        ~Data(){};
-};
-
-*/
-
-
-//Vec3d curr;
-
-
-// Driver code
-
-
-
 
 
 void UDP_connect::LG_communicate_master(StelCore *core, StelMovementMgr *mmgr, QSettings* conf, StelMainScriptAPI *msapi){
 		std::cout<<"in udp function"<< endl;
 
-		/*std::ofstream ofs("/text.txt");
-		const Data g(35, 59);
-		{
-			boost::archive::text_oarchive oa(ofs);
-			// write class instance to archive
-			oa << g;
-				// archive and stream closed when destructors are called
-		}	
-		// send the response
-		std::cout<< ofs;*/
 		
 		char buffer[1000];
 		//char *message = "Hello Client";
@@ -127,7 +56,7 @@ void UDP_connect::LG_communicate_master(StelCore *core, StelMovementMgr *mmgr, Q
 				const double fov= mmgr-> getCurrentFov();
 				const double skyTime= core->getPresetSkyTime();
 				const double timeRate= core->getTimeRate();
-				const double Jday= core->getMJDay();
+				const double Jday= core->getJD();
 				const bool atmFlag= GETSTELMODULE(LandscapeMgr)->getFlagAtmosphere();
 				const bool lndFlag= GETSTELMODULE(LandscapeMgr)->getFlagLandscape();
 				const bool crdFlag= GETSTELMODULE(LandscapeMgr)->getFlagCardinalsPoints();
@@ -136,6 +65,7 @@ void UDP_connect::LG_communicate_master(StelCore *core, StelMovementMgr *mmgr, Q
 				const bool cstLbl= GETSTELMODULE(ConstellationMgr)->getFlagLabels();
 				const QString loc= msapi->getObserverLocation();
 				const bool JD_changed_signal= core-> JD_changed;
+				if (core->JD_changed== true) {core-> JD_changed= false;}
 				//std::cout<<loc.toStdString()<< "loc here......"<<endl<<endl<<endl;
 				//cout<<curr[0]<<" "<<curr[1]<<" "<<curr[2]<< endl;
 				//const Data g(mmgr-> getViewDirectionJ2000());
@@ -143,15 +73,9 @@ void UDP_connect::LG_communicate_master(StelCore *core, StelMovementMgr *mmgr, Q
 					//boost::archive::text_oarchive oa(ss);
 					// write class instance to archive
 					ss << curr[0]<<"|"<< curr[1]<<"|"<< curr[2]<< "|"<< fov<< "|"<< skyTime<< "|"<< timeRate<< "|"<< Jday<< "|"<< atmFlag<< "|"<< lndFlag<< "|"<< crdFlag<< "|"<< cstArt<< "|"<< cstLin<< "|"<< cstLbl<< "|"<< loc.toStdString()<<"|"<<JD_changed_signal;
-				cout<<Jday<<" JD here"<< endl;
-					//oa<< g;		    	
-					// archive and stream closed when destructors are called
+				cout<<Jday<<" JD here "<< JD_changed_signal<< endl;
 				}
-				//std::ifstream ifs("/text.txt");
-				//boost::archive::text_iarchive ia(ifs);
-				
-				// send the response
-				//std::cout<< ia;
+
 				std::string s= ss.str();
 				//std::string str =  ia;
 				sendto(listenfd, s.c_str() , MAXLINE, 0,(struct sockaddr*)&cliaddr, sizeof(cliaddr));
@@ -188,18 +112,10 @@ void UDP_connect::LG_communicate_slave(StelCore *core, StelMovementMgr *mmgr, QS
 
     //std::cout<<core->getMouseJ2000Pos()<<"mouse pos"<<endl;
     std::cout<<"in udp function 3"<<endl;
-    //mmgr->getJ2000();
 
-    
-
-    //std::cout<<mmgr->setFlagLockEquPos(true)<<"flag ";
-    //mmgr->setViewDirectionJ2000(mmgr->getViewDirectionJ2000());
-    //setCurr(mmgr->getViewDirectionJ2000());
-    //std::cout<<"curr vec"<< curr[0]<< curr[1]<< curr[2]<<endl;
 
     while(1){
-        //usleep(.2 * microsecond);//sleeps for 3 second
-        //std::cout<<"in while loop"<< endl;
+
         // request to send datagram
         // no need to specify server address in sendto
         // connect stores the peers IP and port
@@ -209,9 +125,7 @@ void UDP_connect::LG_communicate_slave(StelCore *core, StelMovementMgr *mmgr, QS
         recvfrom(sockfd, buffer, sizeof(buffer), 0, (struct sockaddr*)NULL, NULL);
         //std::cout<<sizeof(buffer)<< endl;
         //if (sizeof(buffer)> 5){
-        //std::cout<<"in while loop3"<< endl;
         //puts(buffer);
-        //std::cout<<"in while loop4"<< endl;
         char str[(sizeof(buffer)) + 1];
             memcpy(str, buffer, sizeof(buffer));
         str[sizeof(buffer)] = 0; // Null termination.
@@ -250,8 +164,8 @@ void UDP_connect::LG_communicate_slave(StelCore *core, StelMovementMgr *mmgr, QS
 /*
         if (Jday!= core->getMJDay()){core->setMJDay(Jday);}
 */
-	if (core->JD_changed== true){
-		core->setMJDay(Jday);
+	if (JD_changed== true){
+		core->setJD(Jday);
 		core->JD_changed= false;
 		cout<<"JD changed"<< endl;
 	}
@@ -297,103 +211,3 @@ void UDP_connect::LG_communicate_slave(StelCore *core, StelMovementMgr *mmgr, QS
 }
 
 
-/*
-void UDP_connect(StelCore *_core, StelMovementMgr *_mmgr)
-{
-	mmgr= _mmgr;
-	core= _core;
-	StelMainScriptAPI *msapi;
-	conf=  StelApp::getInstance().getSettings();
-	//LandscapeMgr *lmr= (LandscapeMgr*)GETSTELMODULE(LandscapeMgr);
-
-	conf->beginGroup("LGConnect");
-	bool is_master= conf->value("thisPC").toInt()==1;
-	conf->endGroup();
-	if (is_master== true){
-		std::cout<<"in udp function"<< endl;
-
-		/*std::ofstream ofs("/text.txt");
-		const Data g(35, 59);
-		{
-			boost::archive::text_oarchive oa(ofs);
-			// write class instance to archive
-			oa << g;
-				// archive and stream closed when destructors are called
-		}	
-		// send the response
-		std::cout<< ofs;*/
-		
-		/*
-		char buffer[1000];
-		//char *message = "Hello Client";
-		int listenfd;
-		socklen_t len;
-		struct sockaddr_in servaddr, cliaddr;
-		bzero(&servaddr, sizeof(servaddr));
-
-		// Create a UDP Socket
-		listenfd = socket(AF_INET, SOCK_DGRAM, 0);		
-		servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
-		servaddr.sin_port = htons(PORT);
-		servaddr.sin_family = AF_INET;
-
-		// bind server address to socket descriptor
-		bind(listenfd, (struct sockaddr*)&servaddr, sizeof(servaddr));
-		
-		//receive the datagram
-		
-		while(1){
-			std::cout<<"in while loop"<< endl;
-			len = sizeof(cliaddr);
-			int n = recvfrom(listenfd, buffer, sizeof(buffer),0, (struct sockaddr*)&cliaddr,&len); //receive message from server
-			puts(buffer);
-			if (sizeof(buffer)> 0){
-				buffer[n] = '\0';
-				puts(buffer);
-
-				//std::string filename(boost::archive::tmpdir());
-					//char filename = "/text.txt";
-
-				std::stringstream ss;
-				//std::ofstream ofs("/text.txt");
-
-				const Vec3d curr= mmgr-> getViewDirectionJ2000();
-				const double fov= mmgr-> getCurrentFov();
-				const double skyTime= core->getPresetSkyTime();
-				const double timeRate= core->getTimeRate();
-				const double Jday= core->getMJDay();
-				const bool atmFlag= GETSTELMODULE(LandscapeMgr)->getFlagAtmosphere();
-				const bool lndFlag= GETSTELMODULE(LandscapeMgr)->getFlagLandscape();
-				const bool crdFlag= GETSTELMODULE(LandscapeMgr)->getFlagCardinalsPoints();
-				const bool cstArt= GETSTELMODULE(ConstellationMgr)->getFlagArt();
-				const bool cstLin= GETSTELMODULE(ConstellationMgr)->getFlagLines();
-				const bool cstLbl= GETSTELMODULE(ConstellationMgr)->getFlagLabels();
-				const QString loc= msapi->getObserverLocation();
-				std::cout<<loc.toStdString()<< "loc here......"<<endl<<endl<<endl;
-				//cout<<curr[0]<<" "<<curr[1]<<" "<<curr[2]<< endl;
-				//const Data g(mmgr-> getViewDirectionJ2000());
-				{
-					//boost::archive::text_oarchive oa(ss);
-					// write class instance to archive
-					ss << curr[0]<<"|"<< curr[1]<<"|"<< curr[2]<< "|"<< fov<< "|"<< skyTime<< "|"<< timeRate<< "|"<< Jday<< "|"<< atmFlag<< "|"<< lndFlag<< "|"<< crdFlag<< "|"<< cstArt<< "|"<< cstLin<< "|"<< cstLbl<< "|"<< loc.toStdString();
-					//oa<< g;		    	
-					// archive and stream closed when destructors are called
-				}
-				//std::ifstream ifs("/text.txt");
-				//boost::archive::text_iarchive ia(ifs);
-				
-				// send the response
-				//std::cout<< ia;
-				std::string s= ss.str();
-				//std::string str =  ia;
-				sendto(listenfd, s.c_str() , MAXLINE, 0,(struct sockaddr*)&cliaddr, sizeof(cliaddr));
-				std::cout<<"sent new pos"<<endl;
-			}
-		}
-	}
-}
-
-*/
-
-
-	

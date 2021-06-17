@@ -1097,6 +1097,8 @@ qint64 StelCore::getMilliSecondsOfLastJDUpdate() const
 void StelCore::setJD(double newJD)
 {
 	std::cout<<"setJD "<<newJD<<endl<<endl;
+	JD_changed= true;
+	std::cout<<JD_changed<< endl<< endl;
 	JD.first=newJD;
 	JD.second=computeDeltaT(newJD);	
 	resetSync();
@@ -1124,7 +1126,7 @@ double StelCore::getJDE() const
 
 void StelCore::setMJDay(double MJD)
 {
-	JD_changed= true;
+	
 	setJD(MJD+2400000.5);
 }
 
