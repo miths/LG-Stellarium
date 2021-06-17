@@ -9,7 +9,7 @@
 #include<unistd.h>
 #include<stdlib.h>
 #include <sstream>
-#include <boost/serialization/vector.hpp>
+//#include <boost/serialization/vector.hpp>
 #include <thread>
 
 #include "StelCore.hpp"
@@ -31,8 +31,8 @@
 #include <fstream>
 
 // include headers that implement a archive in simple text format
-#include <boost/archive/text_oarchive.hpp>
-#include <boost/archive/text_iarchive.hpp>
+//#include <boost/archive/text_oarchive.hpp>
+//#include <boost/archive/text_iarchive.hpp>
 
 using namespace std;
 

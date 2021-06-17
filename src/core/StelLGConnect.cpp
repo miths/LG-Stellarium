@@ -197,7 +197,7 @@ void UDP_connect::LG_communicate_slave(StelCore *core, StelMovementMgr *mmgr, QS
 
     while(1){
         //usleep(.2 * microsecond);//sleeps for 3 second
-        std::cout<<"in while loop"<< endl;
+        //std::cout<<"in while loop"<< endl;
         // request to send datagram
         // no need to specify server address in sendto
         // connect stores the peers IP and port
