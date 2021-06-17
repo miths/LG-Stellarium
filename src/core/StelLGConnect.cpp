@@ -65,6 +65,7 @@ void UDP_connect::LG_communicate_master(StelCore *core, StelMovementMgr *mmgr, Q
 				const bool cstLin= GETSTELMODULE(ConstellationMgr)->getFlagLines();
 				const bool cstLbl= GETSTELMODULE(ConstellationMgr)->getFlagLabels();
 				const QString loc= msapi->getObserverLocation();
+				const QString date= msapi->getDate();
 				const bool JD_changed_signal= core-> JD_changed;
 				if (core->JD_changed== true) {core-> JD_changed= false;}
 				//std::cout<<loc.toStdString()<< "loc here......"<<endl<<endl<<endl;
@@ -73,7 +74,7 @@ void UDP_connect::LG_communicate_master(StelCore *core, StelMovementMgr *mmgr, Q
 				{
 					//boost::archive::text_oarchive oa(ss);
 					// write class instance to archive
-					ss << curr[0]<<"|"<< curr[1]<<"|"<< curr[2]<< "|"<< fov<< "|"<< DeltaT<< "|"<< timeRate<< "|"<< Jday<< "|"<< atmFlag<< "|"<< lndFlag<< "|"<< crdFlag<< "|"<< cstArt<< "|"<< cstLin<< "|"<< cstLbl<< "|"<< loc.toStdString()<<"|"<<JD_changed_signal;
+					ss << curr[0]<<"|"<< curr[1]<<"|"<< curr[2]<< "|"<< fov<< "|"<< date.toStdString()<< "|"<< timeRate<< "|"<< Jday<< "|"<< atmFlag<< "|"<< lndFlag<< "|"<< crdFlag<< "|"<< cstArt<< "|"<< cstLin<< "|"<< cstLbl<< "|"<< loc.toStdString()<<"|"<<JD_changed_signal;
 				cout<<Jday<<" JD here "<< DeltaT<< endl;
 				//cout<<Jday+JTime<<" skytime here "<< endl;
 
@@ -149,7 +150,8 @@ void UDP_connect::LG_communicate_slave(StelCore *core, StelMovementMgr *mmgr, QS
         pos[2]= std::stod(v.at(2));
         double fov= std::stod(v.at(3));
         double skyTime= std::stod(v.at(4));
-        double deltaT= std::stod(v.at(5));
+        QString date= QString::fromStdString(v.at(5));
+        //double date= std::stod(v.at(5));
         double Jday= std::stod(v.at(6));
         bool atmFlag= v.at(7)== "1";
         bool lndFlag= v.at(8)== "1";
@@ -169,8 +171,9 @@ void UDP_connect::LG_communicate_slave(StelCore *core, StelMovementMgr *mmgr, QS
         if (Jday!= core->getMJDay()){core->setMJDay(Jday);}
 */
 	if (JD_changed== true){
-		core->setJD(Jday);
-		core->update(deltaT);
+		//core->setJD(Jday);
+		msapi-> setDate(date);
+		//core->update(deltaT);
 		//core->JD_changed= false;
 		cout<<"JD changed"<< endl;
 	}
