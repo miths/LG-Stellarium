@@ -77,7 +77,7 @@ void UDP_connect::LG_communicate_master(StelCore *core, StelMovementMgr *mmgr, Q
 				{
 					//boost::archive::text_oarchive oa(ss);
 					// write class instance to archive
-					ss << curr[0]<<"|"<< curr[1]<<"|"<< curr[2]<< "|"<< fov<< "|"<< date.toStdString()<< "|"<< timeRate<< "|"<< "|"<< atmFlag<< "|"<< lndFlag<< "|"<< crdFlag<< "|"<< cstArt<< "|"<< cstLin<< "|"<< cstLbl<< "|"<< loc.toStdString()<<"|"<<JD_changed_signal;
+					ss << curr[0]<<"|"<< curr[1]<<"|"<< curr[2]<< "|"<< fov<< "|"<< date.toStdString()<< "|"<< timeRate<< "|"<< atmFlag<< "|"<< lndFlag<< "|"<< crdFlag<< "|"<< cstArt<< "|"<< cstLin<< "|"<< cstLbl<< "|"<< loc.toStdString()<<"|"<<JD_changed_signal;
 				//cout<<Jday<<" JD here "<< DeltaT<< endl;
 				//cout<<Jday+JTime<<" skytime here "<< endl;
 
@@ -173,13 +173,20 @@ void UDP_connect::LG_communicate_slave(StelCore *core, StelMovementMgr *mmgr, QS
 /*
         if (Jday!= core->getMJDay()){core->setMJDay(Jday);}
 */
-	if (JD_changed== true){
+/*	if (JD_changed== true){
 		//core->setJD(Jday);
 		msapi-> setDate(date);
 		//core->update(deltaT);
 		//core->JD_changed= false;
 		cout<<"JD changed"<< endl;
-	}
+	}*/
+		if (msapi-> getDate()!= date){
+			//core->setJD(Jday);
+			msapi-> setDate(date);
+			//core->update(deltaT);
+			//core->JD_changed= false;
+			cout<<"JD changed"<< endl;
+		}
         if (skyTime!= core-> getPresetSkyTime()){core->setPresetSkyTime(skyTime);}
         //if (timeRate!= core->getTimeRate()){core->setTimeRate(timeRate);}
         if (atmFlag!= GETSTELMODULE(LandscapeMgr)->getFlagAtmosphere()){
