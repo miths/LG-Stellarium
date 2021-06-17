@@ -67,7 +67,10 @@ void UDP_connect::LG_communicate_master(StelCore *core, StelMovementMgr *mmgr, Q
 				const QString loc= msapi->getObserverLocation();
 				const QString date= msapi->getDate();
 				const bool JD_changed_signal= core-> JD_changed;
-				if (core->JD_changed== true) {core-> JD_changed= false;}
+				if (core->JD_changed== true) {
+					core-> JD_changed= false;
+					std::cout<<"JD_changed is ture"<< endl;
+					}
 				//std::cout<<loc.toStdString()<< "loc here......"<<endl<<endl<<endl;
 				//cout<<curr[0]<<" "<<curr[1]<<" "<<curr[2]<< endl;
 				//const Data g(mmgr-> getViewDirectionJ2000());
@@ -75,7 +78,7 @@ void UDP_connect::LG_communicate_master(StelCore *core, StelMovementMgr *mmgr, Q
 					//boost::archive::text_oarchive oa(ss);
 					// write class instance to archive
 					ss << curr[0]<<"|"<< curr[1]<<"|"<< curr[2]<< "|"<< fov<< "|"<< date.toStdString()<< "|"<< timeRate<< "|"<< Jday<< "|"<< atmFlag<< "|"<< lndFlag<< "|"<< crdFlag<< "|"<< cstArt<< "|"<< cstLin<< "|"<< cstLbl<< "|"<< loc.toStdString()<<"|"<<JD_changed_signal;
-				cout<<Jday<<" JD here "<< DeltaT<< endl;
+				//cout<<Jday<<" JD here "<< DeltaT<< endl;
 				//cout<<Jday+JTime<<" skytime here "<< endl;
 
 				}
@@ -129,7 +132,7 @@ void UDP_connect::LG_communicate_slave(StelCore *core, StelMovementMgr *mmgr, QS
         recvfrom(sockfd, buffer, sizeof(buffer), 0, (struct sockaddr*)NULL, NULL);
         //std::cout<<sizeof(buffer)<< endl;
         //if (sizeof(buffer)> 5){
-        //puts(buffer);
+        puts(buffer);
         char str[(sizeof(buffer)) + 1];
             memcpy(str, buffer, sizeof(buffer));
         str[sizeof(buffer)] = 0; // Null termination.
