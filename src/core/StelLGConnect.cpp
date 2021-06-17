@@ -135,13 +135,15 @@ void UDP_connect::LG_communicate_master(StelCore *core, StelMovementMgr *mmgr, Q
 				const bool cstLin= GETSTELMODULE(ConstellationMgr)->getFlagLines();
 				const bool cstLbl= GETSTELMODULE(ConstellationMgr)->getFlagLabels();
 				const QString loc= msapi->getObserverLocation();
+				const bool JD_changed_signal= core-> JD_changed;
 				//std::cout<<loc.toStdString()<< "loc here......"<<endl<<endl<<endl;
 				//cout<<curr[0]<<" "<<curr[1]<<" "<<curr[2]<< endl;
 				//const Data g(mmgr-> getViewDirectionJ2000());
 				{
 					//boost::archive::text_oarchive oa(ss);
 					// write class instance to archive
-					ss << curr[0]<<"|"<< curr[1]<<"|"<< curr[2]<< "|"<< fov<< "|"<< skyTime<< "|"<< timeRate<< "|"<< Jday<< "|"<< atmFlag<< "|"<< lndFlag<< "|"<< crdFlag<< "|"<< cstArt<< "|"<< cstLin<< "|"<< cstLbl<< "|"<< loc.toStdString();
+					ss << curr[0]<<"|"<< curr[1]<<"|"<< curr[2]<< "|"<< fov<< "|"<< skyTime<< "|"<< timeRate<< "|"<< Jday<< "|"<< atmFlag<< "|"<< lndFlag<< "|"<< crdFlag<< "|"<< cstArt<< "|"<< cstLin<< "|"<< cstLbl<< "|"<< loc.toStdString()<<"|"<<JD_changed_signal;
+				cout<<Jday<<" JD here"<< endl;
 					//oa<< g;		    	
 					// archive and stream closed when destructors are called
 				}
@@ -218,20 +220,11 @@ void UDP_connect::LG_communicate_slave(StelCore *core, StelMovementMgr *mmgr, QS
         
 
         Vec3d curr= mmgr->getViewDirectionJ2000();
-        //double currFov= mmgr->getCurrentFov();
-        //double currSkyTime= core-> getPresetSkyTime();            
 
-        //cout<< str<< endl;
-            
-        //boost::archive::text_iarchive ia(ss);
-
-        //Data newg;
-
-        //ia >> newg;
         std::vector<std::string> v;
         split(str, v, '|');
         
-        if (v.size()!= 14) continue;
+        if (v.size()!= 15) continue;
         
         Vec3d pos;
         pos[0]= std::stod(v.at(0));
@@ -248,10 +241,8 @@ void UDP_connect::LG_communicate_slave(StelCore *core, StelMovementMgr *mmgr, QS
         bool cstLin= v.at(11)== "1";
         bool cstLbl= v.at(12)== "1";
         QString loc= QString::fromStdString(v.at(13));
-        //cout<<atmFlag<<"atmFlag here"<<endl;
-        //mmgr-> setViewDirectionJ2000(pos);
-        // close the descriptor
-        //newg.print();
+	bool JD_changed= v.at(14)== "1";
+
         
         //std::cout<<pos[0]<<pos[1]<<pos[2]<<"new pos arrived"<<endl;
         if (pos[0]!= curr[0] or pos[1]!= curr[1] or pos[2]!= curr[2] ){ mmgr->setViewDirectionJ2000(pos);}
