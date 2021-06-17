@@ -73,7 +73,7 @@ void UDP_connect::LG_communicate_master(StelCore *core, StelMovementMgr *mmgr, Q
 				{
 					//boost::archive::text_oarchive oa(ss);
 					// write class instance to archive
-					ss << curr[0]<<"|"<< curr[1]<<"|"<< curr[2]<< "|"<< fov<< "|"<< skyTime<< "|"<< timeRate<< "|"<< Jday<< "|"<< atmFlag<< "|"<< lndFlag<< "|"<< crdFlag<< "|"<< cstArt<< "|"<< cstLin<< "|"<< cstLbl<< "|"<< loc.toStdString()<<"|"<<JD_changed_signal<<"|"<<DeltaT;
+					ss << curr[0]<<"|"<< curr[1]<<"|"<< curr[2]<< "|"<< fov<< "|"<< DeltaT<< "|"<< timeRate<< "|"<< Jday<< "|"<< atmFlag<< "|"<< lndFlag<< "|"<< crdFlag<< "|"<< cstArt<< "|"<< cstLin<< "|"<< cstLbl<< "|"<< loc.toStdString()<<"|"<<JD_changed_signal;
 				cout<<Jday<<" JD here "<< DeltaT<< endl;
 				//cout<<Jday+JTime<<" skytime here "<< endl;
 
@@ -141,7 +141,7 @@ void UDP_connect::LG_communicate_slave(StelCore *core, StelMovementMgr *mmgr, QS
         std::vector<std::string> v;
         split(str, v, '|');
         
-        if (v.size()!= 16) continue;
+        if (v.size()!= 15) continue;
         
         Vec3d pos;
         pos[0]= std::stod(v.at(0));
@@ -149,7 +149,7 @@ void UDP_connect::LG_communicate_slave(StelCore *core, StelMovementMgr *mmgr, QS
         pos[2]= std::stod(v.at(2));
         double fov= std::stod(v.at(3));
         double skyTime= std::stod(v.at(4));
-        double timeRate= std::stod(v.at(5));
+        double deltaT= std::stod(v.at(5));
         double Jday= std::stod(v.at(6));
         bool atmFlag= v.at(7)== "1";
         bool lndFlag= v.at(8)== "1";
@@ -159,7 +159,7 @@ void UDP_connect::LG_communicate_slave(StelCore *core, StelMovementMgr *mmgr, QS
         bool cstLbl= v.at(12)== "1";
         QString loc= QString::fromStdString(v.at(13));
 		bool JD_changed= v.at(14)== "1";
-		double deltaT= std::stod(v.at(15));
+		//double deltaT= std::stod(v.at(15));
 
         
         //std::cout<<pos[0]<<pos[1]<<pos[2]<<"new pos arrived"<<endl;
@@ -175,7 +175,7 @@ void UDP_connect::LG_communicate_slave(StelCore *core, StelMovementMgr *mmgr, QS
 		cout<<"JD changed"<< endl;
 	}
         if (skyTime!= core-> getPresetSkyTime()){core->setPresetSkyTime(skyTime);}
-        if (timeRate!= core->getTimeRate()){core->setTimeRate(timeRate);}
+        //if (timeRate!= core->getTimeRate()){core->setTimeRate(timeRate);}
         if (atmFlag!= GETSTELMODULE(LandscapeMgr)->getFlagAtmosphere()){
             LandscapeMgr *lmr= (LandscapeMgr*)GETSTELMODULE(LandscapeMgr);
             if (lmr) {lmr->setFlagAtmosphere(atmFlag);}
