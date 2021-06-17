@@ -57,6 +57,7 @@ void UDP_connect::LG_communicate_master(StelCore *core, StelMovementMgr *mmgr, Q
 				const double skyTime= core->getPresetSkyTime();
 				const double timeRate= core->getTimeRate();
 				const double Jday= core->getJD();
+				const double DeltaT= core->getDeltaT();
 				const bool atmFlag= GETSTELMODULE(LandscapeMgr)->getFlagAtmosphere();
 				const bool lndFlag= GETSTELMODULE(LandscapeMgr)->getFlagLandscape();
 				const bool crdFlag= GETSTELMODULE(LandscapeMgr)->getFlagCardinalsPoints();
@@ -72,8 +73,10 @@ void UDP_connect::LG_communicate_master(StelCore *core, StelMovementMgr *mmgr, Q
 				{
 					//boost::archive::text_oarchive oa(ss);
 					// write class instance to archive
-					ss << curr[0]<<"|"<< curr[1]<<"|"<< curr[2]<< "|"<< fov<< "|"<< skyTime<< "|"<< timeRate<< "|"<< Jday<< "|"<< atmFlag<< "|"<< lndFlag<< "|"<< crdFlag<< "|"<< cstArt<< "|"<< cstLin<< "|"<< cstLbl<< "|"<< loc.toStdString()<<"|"<<JD_changed_signal;
-				cout<<Jday<<" JD here "<< JD_changed_signal<< endl;
+					ss << curr[0]<<"|"<< curr[1]<<"|"<< curr[2]<< "|"<< fov<< "|"<< skyTime<< "|"<< timeRate<< "|"<< Jday<< "|"<< atmFlag<< "|"<< lndFlag<< "|"<< crdFlag<< "|"<< cstArt<< "|"<< cstLin<< "|"<< cstLbl<< "|"<< loc.toStdString()<<"|"<<JD_changed_signal<<"|"<<DeltaT;
+				cout<<Jday<<" JD here "<< DeltaT<< endl;
+				//cout<<Jday+JTime<<" skytime here "<< endl;
+
 				}
 
 				std::string s= ss.str();
@@ -138,7 +141,7 @@ void UDP_connect::LG_communicate_slave(StelCore *core, StelMovementMgr *mmgr, QS
         std::vector<std::string> v;
         split(str, v, '|');
         
-        if (v.size()!= 15) continue;
+        if (v.size()!= 16) continue;
         
         Vec3d pos;
         pos[0]= std::stod(v.at(0));
@@ -155,7 +158,8 @@ void UDP_connect::LG_communicate_slave(StelCore *core, StelMovementMgr *mmgr, QS
         bool cstLin= v.at(11)== "1";
         bool cstLbl= v.at(12)== "1";
         QString loc= QString::fromStdString(v.at(13));
-	bool JD_changed= v.at(14)== "1";
+		bool JD_changed= v.at(14)== "1";
+		double deltaT= std::stod(v.at(15));
 
         
         //std::cout<<pos[0]<<pos[1]<<pos[2]<<"new pos arrived"<<endl;
@@ -166,7 +170,8 @@ void UDP_connect::LG_communicate_slave(StelCore *core, StelMovementMgr *mmgr, QS
 */
 	if (JD_changed== true){
 		core->setJD(Jday);
-		core->JD_changed= false;
+		core->update(deltaT);
+		//core->JD_changed= false;
 		cout<<"JD changed"<< endl;
 	}
         if (skyTime!= core-> getPresetSkyTime()){core->setPresetSkyTime(skyTime);}
