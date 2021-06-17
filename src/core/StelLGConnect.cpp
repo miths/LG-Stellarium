@@ -77,7 +77,7 @@ void UDP_connect::LG_communicate_master(StelCore *core, StelMovementMgr *mmgr, Q
 				{
 					//boost::archive::text_oarchive oa(ss);
 					// write class instance to archive
-					ss << curr[0]<<"|"<< curr[1]<<"|"<< curr[2]<< "|"<< fov<< "|"<< date.toStdString()<< "|"<< timeRate<< "|"<< Jday<< "|"<< atmFlag<< "|"<< lndFlag<< "|"<< crdFlag<< "|"<< cstArt<< "|"<< cstLin<< "|"<< cstLbl<< "|"<< loc.toStdString()<<"|"<<JD_changed_signal;
+					ss << curr[0]<<"|"<< curr[1]<<"|"<< curr[2]<< "|"<< fov<< "|"<< date.toStdString()<< "|"<< timeRate<< "|"<< "|"<< atmFlag<< "|"<< lndFlag<< "|"<< crdFlag<< "|"<< cstArt<< "|"<< cstLin<< "|"<< cstLbl<< "|"<< loc.toStdString()<<"|"<<JD_changed_signal;
 				//cout<<Jday<<" JD here "<< DeltaT<< endl;
 				//cout<<Jday+JTime<<" skytime here "<< endl;
 
@@ -145,7 +145,7 @@ void UDP_connect::LG_communicate_slave(StelCore *core, StelMovementMgr *mmgr, QS
         std::vector<std::string> v;
         split(str, v, '|');
         
-        if (v.size()!= 15) continue;
+        if (v.size()!= 14) continue;
         
         Vec3d pos;
         pos[0]= std::stod(v.at(0));
@@ -155,15 +155,15 @@ void UDP_connect::LG_communicate_slave(StelCore *core, StelMovementMgr *mmgr, QS
         double skyTime= std::stod(v.at(4));
         QString date= QString::fromStdString(v.at(5));
         //double date= std::stod(v.at(5));
-        double Jday= std::stod(v.at(6));
-        bool atmFlag= v.at(7)== "1";
-        bool lndFlag= v.at(8)== "1";
-        bool crdFlag= v.at(9)== "1";
-        bool cstArt= v.at(10)== "1";
-        bool cstLin= v.at(11)== "1";
-        bool cstLbl= v.at(12)== "1";
-        QString loc= QString::fromStdString(v.at(13));
-		bool JD_changed= v.at(14)== "1";
+        //double Jday= std::stod(v.at(6));
+        bool atmFlag= v.at(6)== "1";
+        bool lndFlag= v.at(7)== "1";
+        bool crdFlag= v.at(8)== "1";
+        bool cstArt= v.at(9)== "1";
+        bool cstLin= v.at(10)== "1";
+        bool cstLbl= v.at(11)== "1";
+        QString loc= QString::fromStdString(v.at(12));
+		bool JD_changed= v.at(13)== "1";
 		//double deltaT= std::stod(v.at(15));
 
         
