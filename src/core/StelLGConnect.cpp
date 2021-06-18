@@ -152,9 +152,9 @@ void UDP_connect::LG_communicate_slave(StelCore *core, StelMovementMgr *mmgr, QS
         pos[1]= std::stod(v.at(1));
         pos[2]= std::stod(v.at(2));
         double fov= std::stod(v.at(3));
-        double skyTime= std::stod(v.at(4));
+        //double skyTime= std::stod(v.at(4));
         QString date= QString::fromStdString(v.at(5));
-        //double date= std::stod(v.at(5));
+        double timeRate= std::stod(v.at(5));
         //double Jday= std::stod(v.at(6));
         bool atmFlag= v.at(6)== "1";
         bool lndFlag= v.at(7)== "1";
@@ -163,7 +163,7 @@ void UDP_connect::LG_communicate_slave(StelCore *core, StelMovementMgr *mmgr, QS
         bool cstLin= v.at(10)== "1";
         bool cstLbl= v.at(11)== "1";
         QString loc= QString::fromStdString(v.at(12));
-		bool JD_changed= v.at(13)== "1";
+	bool JD_changed= v.at(13)== "1";
 		//double deltaT= std::stod(v.at(15));
 
         
@@ -180,15 +180,15 @@ void UDP_connect::LG_communicate_slave(StelCore *core, StelMovementMgr *mmgr, QS
 		//core->JD_changed= false;
 		cout<<"JD changed"<< endl;
 	}*/
-		if (msapi-> getDate()!= date){
+		if (JD_changed== true){
 			//core->setJD(Jday);
 			msapi-> setDate(date);
 			//core->update(deltaT);
 			//core->JD_changed= false;
 			cout<<"JD changed"<< endl;
 		}
-        if (skyTime!= core-> getPresetSkyTime()){core->setPresetSkyTime(skyTime);}
-        //if (timeRate!= core->getTimeRate()){core->setTimeRate(timeRate);}
+        //if (skyTime!= core-> getPresetSkyTime()){core->setPresetSkyTime(skyTime);}
+        if (timeRate!= core->getTimeRate()){core->setTimeRate(timeRate);}
         if (atmFlag!= GETSTELMODULE(LandscapeMgr)->getFlagAtmosphere()){
             LandscapeMgr *lmr= (LandscapeMgr*)GETSTELMODULE(LandscapeMgr);
             if (lmr) {lmr->setFlagAtmosphere(atmFlag);}
