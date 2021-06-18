@@ -153,7 +153,7 @@ void UDP_connect::LG_communicate_slave(StelCore *core, StelMovementMgr *mmgr, QS
         pos[2]= std::stod(v.at(2));
         double fov= std::stod(v.at(3));
         //double skyTime= std::stod(v.at(4));
-        QString date= QString::fromStdString(v.at(5));
+        QString date= QString::fromStdString(v.at(4));
         double timeRate= std::stod(v.at(5));
         //double Jday= std::stod(v.at(6));
         bool atmFlag= v.at(6)== "1";
