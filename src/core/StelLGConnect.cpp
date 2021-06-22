@@ -69,7 +69,7 @@ void UDP_connect::LG_communicate_master(StelCore *core, StelMovementMgr *mmgr, Q
 				const bool JD_changed_signal= core-> JD_changed;
 				if (core->JD_changed== true) {
 					core-> JD_changed= false;
-					std::cout<<"JD_changed is ture"<< endl;
+					//std::cout<<"JD_changed is ture"<< endl;
 					}
 				//std::cout<<loc.toStdString()<< "loc here......"<<endl<<endl<<endl;
 				//cout<<curr[0]<<" "<<curr[1]<<" "<<curr[2]<< endl;
@@ -132,7 +132,7 @@ void UDP_connect::LG_communicate_slave(StelCore *core, StelMovementMgr *mmgr, QS
         recvfrom(sockfd, buffer, sizeof(buffer), 0, (struct sockaddr*)NULL, NULL);
         //std::cout<<sizeof(buffer)<< endl;
         //if (sizeof(buffer)> 5){
-        puts(buffer);
+        //puts(buffer);
         char str[(sizeof(buffer)) + 1];
             memcpy(str, buffer, sizeof(buffer));
         str[sizeof(buffer)] = 0; // Null termination.
@@ -185,7 +185,7 @@ void UDP_connect::LG_communicate_slave(StelCore *core, StelMovementMgr *mmgr, QS
 			msapi-> setDate(date);
 			//core->update(deltaT);
 			//core->JD_changed= false;
-			cout<<"JD changed"<< endl;
+			//cout<<"JD changed"<< endl;
 		}
         //if (skyTime!= core-> getPresetSkyTime()){core->setPresetSkyTime(skyTime);}
         if (timeRate!= core->getTimeRate()){core->setTimeRate(timeRate);}
