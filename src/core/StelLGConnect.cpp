@@ -18,7 +18,7 @@ using namespace std;
 void UDP_connect::LG_communicate_master(StelCore *core, StelMovementMgr *mmgr, QSettings* conf, StelMainScriptAPI *msapi){
 		std::cout<<"in udp function"<< endl;
 
-		
+		bool firstTime= true;
 		char buffer[1000];
 		//char *message = "Hello Client";
 		int listenfd;
@@ -66,11 +66,15 @@ void UDP_connect::LG_communicate_master(StelCore *core, StelMovementMgr *mmgr, Q
 				const bool cstLbl= GETSTELMODULE(ConstellationMgr)->getFlagLabels();
 				const QString loc= msapi->getObserverLocation();
 				const QString date= msapi->getDate();
-				const bool JD_changed_signal= core-> JD_changed;
+				bool JD_changed_signal= core-> JD_changed;
 				if (core->JD_changed== true) {
 					core-> JD_changed= false;
 					//std::cout<<"JD_changed is ture"<< endl;
 					}
+				if (firstTime== true){
+					JD_changed_signal= true;
+					firstTime= false;
+				}
 				//std::cout<<loc.toStdString()<< "loc here......"<<endl<<endl<<endl;
 				//cout<<curr[0]<<" "<<curr[1]<<" "<<curr[2]<< endl;
 				//const Data g(mmgr-> getViewDirectionJ2000());
