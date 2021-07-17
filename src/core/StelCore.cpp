@@ -719,8 +719,8 @@ void StelCore::lookAtJ2000(const Vec3d& pos, const Vec3d& aup, QSettings* conf)
         // angular offset from original view = offset*hfov
         // f1 - Rotated f vector about u vector by offset*hfov
         // s1 - Rotated f vector about u vector by offset*hfov
-        double sv = cos((double)-offset*hfov);
-        double cv = sin((double)-offset*hfov);
+        double cv = cos((double)offset*hfov);
+        double sv = sin((double)offset*hfov);
         Vec3d f1( u[0]*u.dot(f)*(1-cv) + f[0]*cv + (u[1]*f[2]-u[2]*f[1])*sv,
               u[1]*u.dot(f)*(1-cv) + f[1]*cv + (u[2]*f[0]-u[0]*f[2])*sv,
               u[2]*u.dot(f)*(1-cv) + f[2]*cv + (u[0]*f[1]-u[1]*f[0])*sv );
