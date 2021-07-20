@@ -685,10 +685,11 @@ void StelCore::lookAtJ2000(const Vec3d& pos, const Vec3d& aup, QSettings* conf)
 {
     //int offset= -1;
     conf->beginGroup("LGConnect");
-    int offset= conf->value("offset").toInt();
+    int Hoffset= conf->value("Hoffset").toInt();
+    int Voffset= conf->value("Voffset").toInt();
     conf->endGroup();
     
-    
+    //offset= 0;
     //std::cout<<offset<<" offset here"<< endl<< endl;
     
 
@@ -702,36 +703,96 @@ void StelCore::lookAtJ2000(const Vec3d& pos, const Vec3d& aup, QSettings* conf)
     s.normalize();
     Vec3d u(s^f);    // Up vector in AltAz coordinates
     u.normalize();
-
-    if (offset == 0)
+    /*
+	std::cout<<"s vec 0 "<<s[0]<<" "<<s[1]<<" "<<s[2]<<std::endl;
+	std::cout<<"f vec 0 "<<f[0]<<" "<<f[1]<<" "<<f[2]<<std::endl;
+	std::cout<<"u vec 0 "<<u[0]<<" "<<u[1]<<" "<<u[2]<<std::endl;
+	*/
+	double hfov = movementMgr->getCurrentFov() * (double)currentProjectorParams.viewportXywh[2] / (double)currentProjectorParams.viewportXywh[3] * M_PI/180.;
+	double vfov= movementMgr->getCurrentFov()* M_PI/180.;
+    if (Hoffset == 0 && Voffset== 0)
     {
         matAltAzModelView.set(s[0],u[0],-f[0],0.,
                 s[1],u[1],-f[1],0.,
                 s[2],u[2],-f[2],0.,
                 0.,0.,0.,1.);
         invertMatAltAzModelView = matAltAzModelView.inverse();
-    } else {
-        // CurrentFov is vertical fov. Compute Horizontal FOV in Radians.
-        double hfov = movementMgr->getCurrentFov() * (double)currentProjectorParams.viewportXywh[2] / (double)currentProjectorParams.viewportXywh[3] * M_PI/180.;
-        //double hfov = movementMgr->getCurrentFov() * 2 * M_PI/180.;
-        double fov= movementMgr->getCurrentFov();
-        //std::cout<<" hfov "<<hfov<<" fov "<<fov<<" pos "<<pos<<" aup "<<aup<< endl;
-        // angular offset from original view = offset*hfov
-        // f1 - Rotated f vector about u vector by offset*hfov
-        // s1 - Rotated f vector about u vector by offset*hfov
-        double cv = cos((double)-offset*hfov);
-        double sv = sin((double)-offset*hfov);
+    }
+    else if (Hoffset != 0 && Voffset!= 0){
+    	double cv = cos((double)-Hoffset*hfov);
+        double sv = sin((double)-Hoffset*hfov);
+
         Vec3d f1( u[0]*u.dot(f)*(1-cv) + f[0]*cv + (u[1]*f[2]-u[2]*f[1])*sv,
               u[1]*u.dot(f)*(1-cv) + f[1]*cv + (u[2]*f[0]-u[0]*f[2])*sv,
               u[2]*u.dot(f)*(1-cv) + f[2]*cv + (u[0]*f[1]-u[1]*f[0])*sv );
         f1.normalize();
+        
         Vec3d s1(f1^u);
         s1.normalize();
+        
+/*
+        matAltAzModelView.set(s[0],u[0],-f1[0],0.,
+							s[1],u[1],-f1[1],0.,
+							s[2],u[2],-f1[2],0.,
+							0.,0.,0.,1.);
+        invertMatAltAzModelView = matAltAzModelView.inverse();
+        */
+         cv = cos((double)Voffset*vfov);
+         sv = sin((double)Voffset*vfov);
+        
+        Vec3d f2( s[0]*s.dot(f1)*(1-cv) + f[0]*cv + (s[1]*f1[2]-s[2]*f1[1])*sv,
+              s[1]*s.dot(f1)*(1-cv) + f[1]*cv + (s[2]*f1[0]-s[0]*f1[2])*sv,
+              s[2]*s.dot(f1)*(1-cv) + f[2]*cv + (s[0]*f1[1]-s[1]*f1[0])*sv );
+              
+        //f2.normalize();
+        //Vec3d s1(f2^u);
+        s1.normalize();
+        Vec3d u1(s^f2);
+        u1.normalize();
+        
+        
+        matAltAzModelView.set(s1[0],u1[0],-f2[0],0.,
+							s1[1],u1[1],-f2[1],0.,
+							s1[2],u1[2],-f2[2],0.,
+							0.,0.,0.,1.);
+        invertMatAltAzModelView = matAltAzModelView.inverse();
+    
+    }
+    else if (Hoffset != 0){
+    	double cv = cos((double)-Hoffset*hfov);
+        double sv = sin((double)-Hoffset*hfov);
 
-        matAltAzModelView.set(s1[0],u[0],-f1[0],0.,
-                s1[1],u[1],-f1[1],0.,
-                s1[2],u[2],-f1[2],0.,
-                0.,0.,0.,1.);
+        Vec3d f1( u[0]*u.dot(f)*(1-cv) + f[0]*cv + (u[1]*f[2]-u[2]*f[1])*sv,
+              u[1]*u.dot(f)*(1-cv) + f[1]*cv + (u[2]*f[0]-u[0]*f[2])*sv,
+              u[2]*u.dot(f)*(1-cv) + f[2]*cv + (u[0]*f[1]-u[1]*f[0])*sv );
+        f.normalize();
+        Vec3d s(f1^u);
+        s.normalize();
+
+        matAltAzModelView.set(s[0],u[0],-f1[0],0.,
+							s[1],u[1],-f1[1],0.,
+							s[2],u[2],-f1[2],0.,
+							0.,0.,0.,1.);
+        invertMatAltAzModelView = matAltAzModelView.inverse();
+
+    }
+    else if (Voffset!= 0){
+    	double cv = cos((double)Voffset*vfov);
+        double sv = sin((double)Voffset*vfov);
+        
+        Vec3d f1( s[0]*s.dot(f)*(1-cv) + f[0]*cv + (s[1]*f[2]-s[2]*f[1])*sv,
+              s[1]*s.dot(f)*(1-cv) + f[1]*cv + (s[2]*f[0]-s[0]*f[2])*sv,
+              s[2]*s.dot(f)*(1-cv) + f[2]*cv + (s[0]*f[1]-s[1]*f[0])*sv );
+              
+              
+        f1.normalize();
+        Vec3d u(s^f1);
+        u.normalize();
+        
+        matAltAzModelView.set(s[0],u[0],-f1[0],0.,
+							s[1],u[1],-f1[1],0.,
+							s[2],u[2],-f1[2],0.,
+							0.,0.,0.,1.);
         invertMatAltAzModelView = matAltAzModelView.inverse();
     }
 }
