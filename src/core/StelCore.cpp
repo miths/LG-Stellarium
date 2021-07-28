@@ -683,14 +683,11 @@ void StelCore::setCurrentStelProjectorParams(const StelProjector::StelProjectorP
 
 void StelCore::lookAtJ2000(const Vec3d& pos, const Vec3d& aup, QSettings* conf)
 {
-    //int offset= -1;
+    //get offset values from config file
     conf->beginGroup("LGConnect");
     int Hoffset= conf->value("Hoffset").toInt();
     int Voffset= conf->value("Voffset").toInt();
     conf->endGroup();
-    
-    //offset= 0;
-    //std::cout<<offset<<" offset here"<< endl<< endl;
     
 
     Vec3d f(j2000ToAltAz(pos, RefractionOff));
@@ -703,13 +700,11 @@ void StelCore::lookAtJ2000(const Vec3d& pos, const Vec3d& aup, QSettings* conf)
     s.normalize();
     Vec3d u(s^f);    // Up vector in AltAz coordinates
     u.normalize();
-    /*
-	std::cout<<"s vec 0 "<<s[0]<<" "<<s[1]<<" "<<s[2]<<std::endl;
-	std::cout<<"f vec 0 "<<f[0]<<" "<<f[1]<<" "<<f[2]<<std::endl;
-	std::cout<<"u vec 0 "<<u[0]<<" "<<u[1]<<" "<<u[2]<<std::endl;
-	*/
+
+	// calc vertical and horizontal angle in rad
 	double hfov = movementMgr->getCurrentFov() * (double)currentProjectorParams.viewportXywh[2] / (double)currentProjectorParams.viewportXywh[3] * M_PI/180.;
 	double vfov= movementMgr->getCurrentFov()* M_PI/180.;
+
     if (Hoffset == 0 && Voffset== 0)
     {
         matAltAzModelView.set(s[0],u[0],-f[0],0.,

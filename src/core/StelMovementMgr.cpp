@@ -249,11 +249,9 @@ void StelMovementMgr::init()
 	connect(viewportOffsetTimeline, SIGNAL(valueChanged(qreal)), this, SLOT(handleViewportOffsetMovement(qreal)));
 	targetViewportOffset.set(core->getViewportHorizontalOffset(), core->getViewportVerticalOffset());
 	
+	// init communication here
 	UDP_connect lgc(core, this);
-	//std::thread t1(UDP_connect lgc(), core, this);
-	//t1.detach();
-	//std::thread t1(UDP_connect, core, this);
-	//t1.detach();
+
 }
 
 void StelMovementMgr::bindingFOVActions()

@@ -1,4 +1,3 @@
-// server program for udp connection
 #include <stdio.h>
 #include <strings.h>
 #include <iostream>
@@ -9,13 +8,11 @@
 #include<unistd.h>
 #include<stdlib.h>
 #include <sstream>
-//#include <boost/serialization/vector.hpp>
 #include <thread>
 
 #include "StelCore.hpp"
 #include "StelMovementMgr.hpp"
 #include "StelApp.hpp"
-//#include "StelLGConnect.hpp"
 #include "StelModuleMgr.hpp"
 #include "modules/LandscapeMgr.hpp"
 #include "modules/ConstellationMgr.hpp"
@@ -30,9 +27,6 @@
 
 #include <fstream>
 
-// include headers that implement a archive in simple text format
-//#include <boost/archive/text_oarchive.hpp>
-//#include <boost/archive/text_iarchive.hpp>
 
 using namespace std;
 
@@ -42,13 +36,13 @@ class LandscapeMgr;
 class ConstellationMgr;
 class StelMainScriptAPI;
 
-//void UDP_connect(StelCore *_core, StelMovementMgr *_mmgr);
+
 
 
 class UDP_connect{
 
 private:
-
+	// to split received string
 	static size_t split(const std::string &txt, std::vector<std::string> &strs, char ch)
 	{
 		size_t pos = txt.find( ch );
@@ -87,20 +81,20 @@ public:
 		//StelMainScriptAPI *msapi;
 		conf=  StelApp::getInstance().getSettings();
 		microsecond= 1000000;
+		// get values from config file
 		conf->beginGroup("LGConnect");
 		bool is_master= conf->value("thisPC").toInt()==1;
 		bool is_slave= conf->value("thisPC").toInt()==0;
 		QString ip= conf->value("ip_addr").toString();
-		//const char* ip_addr= conf->value("ip_addr").toString().toUtf8().data();
 		conf->endGroup();
 		
 		if (is_master== true){
-			//LG_communicate_master();
+			// run as new thread
 			std::thread t1(LG_communicate_master, core, mmgr, conf, msapi);
 			t1.detach();
-		 	//LG_communicate_master();
 		 }
 		else if (is_slave== true){
+			// run as new thread
 			std::thread t1(LG_communicate_slave, core, mmgr, conf, msapi, microsecond, ip);
 			t1.detach();
 		}
