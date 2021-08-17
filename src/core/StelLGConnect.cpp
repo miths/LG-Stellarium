@@ -21,6 +21,7 @@ void UDP_connect::LG_communicate_master(StelCore *core, StelMovementMgr *mmgr, Q
 		bool firstTime= true;
 		char buffer[1000];
 		int listenfd;
+		int JD_changed_countdown= 0;
 		socklen_t len;
 		struct sockaddr_in servaddr, cliaddr;
 		bzero(&servaddr, sizeof(servaddr));
@@ -41,8 +42,8 @@ void UDP_connect::LG_communicate_master(StelCore *core, StelMovementMgr *mmgr, Q
 			int n = recvfrom(listenfd, buffer, sizeof(buffer),0, (struct sockaddr*)&cliaddr,&len); //receive message from server
 			if (sizeof(buffer)> 0){
 				buffer[n] = '\0';
-				//puts(buffer);
-
+				puts(buffer);
+				std::cout<<"DEBUG: msg rcv in master "<<endl;
 				std::stringstream ss;
 
 				const Vec3d curr= mmgr-> getViewDirectionJ2000();
@@ -67,6 +68,13 @@ void UDP_connect::LG_communicate_master(StelCore *core, StelMovementMgr *mmgr, Q
 					JD_changed_signal= true;
 					firstTime= false;
 				}
+				if (JD_changed_signal== true) { JD_changed_countdown= 20; }
+				
+				if (JD_changed_countdown> 0) { 
+					JD_changed_signal= true;
+					JD_changed_countdown--;
+				}
+				
 // pack data into string
 				{
 					ss << curr[0]<<"|"<< curr[1]<<"|"<< curr[2]<< "|"<< fov<< "|"<< date.toStdString()<< "|"<< timeRate<< "|"<< atmFlag<< "|"<< lndFlag<< "|"<< crdFlag<< "|"<< cstArt<< "|"<< cstLin<< "|"<< cstLbl<< "|"<< loc.toStdString()<<"|"<<JD_changed_signal;
@@ -83,12 +91,13 @@ void UDP_connect::LG_communicate_slave(StelCore *core, StelMovementMgr *mmgr, QS
 
     std::cout<<"DEBUG in udp function"<<endl;
 	char* ip_addr= ip.toUtf8().data();
-    char buffer[100];
+    char buffer[1000];
     char *message = "Hello Server";
     int sockfd, n;
     struct sockaddr_in servaddr;
     // clear servaddr
     bzero(&servaddr, sizeof(servaddr));
+	std::cout<<"DEBUG: ipaddr "<< ip_addr<<endl;
     servaddr.sin_addr.s_addr = inet_addr(ip_addr);   //  192.168.43.12 | 10.0.2.18
     servaddr.sin_port = htons(PORT);
     servaddr.sin_family = AF_INET;
@@ -109,6 +118,7 @@ void UDP_connect::LG_communicate_slave(StelCore *core, StelMovementMgr *mmgr, QS
         // no need to specify server address in sendto
         // connect stores the peers IP and port
         sendto(sockfd, message, MAXLINE, 0, (struct sockaddr*)NULL, sizeof(servaddr));
+		std::cout<<"DEBUG: msg sent in slave"<<endl;
         // waiting for response
         recvfrom(sockfd, buffer, sizeof(buffer), 0, (struct sockaddr*)NULL, NULL);
         char str[(sizeof(buffer)) + 1];
