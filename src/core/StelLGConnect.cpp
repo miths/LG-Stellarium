@@ -16,10 +16,10 @@ using namespace std;
 
 
 void UDP_connect::LG_communicate_master(StelCore *core, StelMovementMgr *mmgr, QSettings* conf, StelMainScriptAPI *msapi){
-		std::cout<<"DEBUG in udp function"<< endl;
+		//std::cout<<"DEBUG in udp function"<< endl;
 
 		bool firstTime= true;
-		char buffer[1000];
+		
 		int listenfd;
 		int JD_changed_countdown= 0;
 		socklen_t len;
@@ -38,12 +38,13 @@ void UDP_connect::LG_communicate_master(StelCore *core, StelMovementMgr *mmgr, Q
 		//receive the datagram
 		
 		while(1){
+			char buffer[1000];
 			len = sizeof(cliaddr);
 			int n = recvfrom(listenfd, buffer, sizeof(buffer),0, (struct sockaddr*)&cliaddr,&len); //receive message from server
 			if (sizeof(buffer)> 0){
 				buffer[n] = '\0';
-				puts(buffer);
-				std::cout<<"DEBUG: msg rcv in master "<<endl;
+				//puts(buffer);
+				//std::cout<<"DEBUG: msg rcv in master "<<endl;
 				std::stringstream ss;
 
 				const Vec3d curr= mmgr-> getViewDirectionJ2000();
@@ -83,21 +84,22 @@ void UDP_connect::LG_communicate_master(StelCore *core, StelMovementMgr *mmgr, Q
 
 				std::string s= ss.str();
 				sendto(listenfd, s.c_str() , MAXLINE, 0,(struct sockaddr*)&cliaddr, sizeof(cliaddr));
+				//std::cout<<"DEBUG: msg sent in master"<<endl;
 			}
 		}
 	}
 void UDP_connect::LG_communicate_slave(StelCore *core, StelMovementMgr *mmgr, QSettings* conf, StelMainScriptAPI *msapi, int unsigned microsecond, QString ip){
 	usleep(5 * microsecond);//sleeps for 5 second
 
-    std::cout<<"DEBUG in udp function"<<endl;
+    //std::cout<<"DEBUG in udp function"<<endl;
 	char* ip_addr= ip.toUtf8().data();
-    char buffer[1000];
+    //char buffer[1000];
     char *message = "Hello Server";
     int sockfd, n;
     struct sockaddr_in servaddr;
     // clear servaddr
     bzero(&servaddr, sizeof(servaddr));
-	std::cout<<"DEBUG: ipaddr "<< ip_addr<<endl;
+	//std::cout<<"DEBUG: ipaddr "<< ip_addr<<endl;
     servaddr.sin_addr.s_addr = inet_addr(ip_addr);   //  192.168.43.12 | 10.0.2.18
     servaddr.sin_port = htons(PORT);
     servaddr.sin_family = AF_INET;
@@ -113,18 +115,19 @@ void UDP_connect::LG_communicate_slave(StelCore *core, StelMovementMgr *mmgr, QS
 
 
     while(1){
-
+	char buffer[1000];
         // request to send datagram
         // no need to specify server address in sendto
         // connect stores the peers IP and port
         sendto(sockfd, message, MAXLINE, 0, (struct sockaddr*)NULL, sizeof(servaddr));
-		std::cout<<"DEBUG: msg sent in slave"<<endl;
+		//std::cout<<"DEBUG: msg sent in slave"<<endl;
         // waiting for response
         recvfrom(sockfd, buffer, sizeof(buffer), 0, (struct sockaddr*)NULL, NULL);
+		//std::cout<<"DEBUG: msg rcv in slave"<<endl;
         char str[(sizeof(buffer)) + 1];
             memcpy(str, buffer, sizeof(buffer));
         str[sizeof(buffer)] = 0; // Null termination.
-        
+        //puts(buffer);
 
         Vec3d curr= mmgr->getViewDirectionJ2000();
 
