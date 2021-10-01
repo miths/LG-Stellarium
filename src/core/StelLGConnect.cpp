@@ -170,7 +170,7 @@ void UDP_connect::LG_communicate_slave(StelCore *core, StelMovementMgr *mmgr, QS
         // waiting for response
         std::cout<<"DEBUG waiting for response"<< endl;
         recvfrom(sockfd, buffer, sizeof(buffer), 0, (struct sockaddr*)NULL, NULL);
-		
+		puts(buffer);
 		std::cout<<"DEBUG: msg rcv in slave"<<endl;
         
         char str[(sizeof(buffer)) + 1];
