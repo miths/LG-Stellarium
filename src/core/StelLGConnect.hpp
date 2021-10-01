@@ -18,6 +18,16 @@
 #include "modules/ConstellationMgr.hpp"
 #include "./scripting/StelMainScriptAPI.hpp"
 
+
+// for broadcast ip setting
+#include <stdio.h>      
+#include <sys/types.h>
+#include <ifaddrs.h>
+#include <netinet/in.h> 
+#include <string.h> 
+#include <arpa/inet.h>
+// -------------------------------
+
 #include <QSettings>
 #include <QString>
 
@@ -73,7 +83,7 @@ private:
 	
 	
 public:
-	static void LG_communicate_master(StelCore *core, StelMovementMgr *mmgr, QSettings* conf, StelMainScriptAPI *msapi);
+	static void LG_communicate_master(StelCore *core, StelMovementMgr *mmgr, QSettings* conf, StelMainScriptAPI *msapi, char* ip_addr);
 	static void LG_communicate_slave(StelCore *core, StelMovementMgr *mmgr, QSettings* conf, StelMainScriptAPI *msapi, int unsigned microsecond, QString ip);
 	UDP_connect(StelCore *_core, StelMovementMgr *_mmgr){
 		core= _core;
@@ -87,10 +97,11 @@ public:
 		bool is_slave= conf->value("thisPC").toInt()==0;
 		QString ip= conf->value("ip_addr").toString();
 		conf->endGroup();
-		
+		char* ip_addr= get_broadcasting_addr().toUtf8().data();
 		if (is_master== true){
 			// run as new thread
-			std::thread t1(LG_communicate_master, core, mmgr, conf, msapi);
+			cout<<"reached here "<<endl;
+			std::thread t1(LG_communicate_master, core, mmgr, conf, msapi, ip_addr);
 			t1.detach();
 		 }
 		else if (is_slave== true){
@@ -99,6 +110,36 @@ public:
 			t1.detach();
 		}
 	}
+	
+	static QString get_broadcasting_addr(){
+	
+		struct ifaddrs * ifAddrStruct=NULL;
+		struct ifaddrs * ifa=NULL;
+		void * tmpAddrPtr=NULL;
+
+		getifaddrs(&ifAddrStruct);
+		int count= 0;
+		for (ifa = ifAddrStruct; ifa != NULL; ifa = ifa->ifa_next) {
+			count++;
+			if (count< 4) continue;
+		     if(ifa->ifa_ifu.ifu_broadaddr->sa_family == AF_INET){
+		     char addressBuffer[INET_ADDRSTRLEN];
+		        tmpAddrPtr = &((struct sockaddr_in *)ifa->ifa_ifu.ifu_broadaddr)->sin_addr;
+		        inet_ntop(ifa->ifa_ifu.ifu_broadaddr->sa_family,
+		                     tmpAddrPtr,
+		                     addressBuffer,
+		                     sizeof(addressBuffer));
+		                     printf(addressBuffer);
+		                     QString ret= QString::fromStdString(string(addressBuffer));
+		                     return ret;
+		             break;
+		        }
+		}
+		
+		return NULL;
+	
+	}
+	
 	
 
 };
