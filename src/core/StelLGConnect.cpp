@@ -113,9 +113,33 @@ void UDP_connect::LG_communicate_slave(StelCore *core, StelMovementMgr *mmgr, QS
     //char buffer[1000];
     char *message = "Hello Server";
     int sockfd, n;
-    struct sockaddr_in servaddr;
+    
+    //struct sockaddr_in servaddr;
     // clear servaddr
-    bzero(&servaddr, sizeof(servaddr));
+    
+    
+	//socklen_t len;
+	int listenfd;
+	struct sockaddr_in servaddr, cliaddr;
+	//cliaddr.sin_addr.s_addr = inet_addr(ip_addr);
+	bzero(&servaddr, sizeof(servaddr));
+
+	// Create a UDP Socket
+	listenfd = socket(AF_INET, SOCK_DGRAM, 0);		
+	servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
+	servaddr.sin_port = htons(PORT);
+	servaddr.sin_family = AF_INET;
+	std::cout<<"DEBUG in udp function 1 "<< endl;
+	// bind server address to socket descriptor
+	bind(listenfd, (struct sockaddr*)&servaddr, sizeof(servaddr));
+
+
+
+
+
+
+
+    //bzero(&servaddr, sizeof(servaddr));
 	//std::cout<<"DEBUG: ipaddr "<< ip_addr<<endl;
 	/*
     servaddr.sin_addr.s_addr = inet_addr(ip_addr);   //  192.168.43.12 | 10.0.2.18
@@ -123,7 +147,7 @@ void UDP_connect::LG_communicate_slave(StelCore *core, StelMovementMgr *mmgr, QS
     servaddr.sin_family = AF_INET;
     */
     // create datagram socket
-    sockfd = socket(AF_INET, SOCK_DGRAM, 0);
+    //sockfd = socket(AF_INET, SOCK_DGRAM, 0);
     
     // connect to server
     /*
